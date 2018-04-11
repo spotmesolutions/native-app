@@ -1,5 +1,3 @@
-/* global google */ 
-/* eslint-disable no-undef */
 import React, { Component } from "react";
 import { Text, View, Image, Button, TouchableHighlight, TextInput,TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
