@@ -17,7 +17,7 @@ const GarageDetails = props => {
       <View style={styles.headerStyle}>
         <Text style={styles.headerText}>Santa Clara Garage </Text>
         <Image
-        source={require("../icon.jpg")}
+        source={require("../images/icon.jpg")}
       />
       </View>
 

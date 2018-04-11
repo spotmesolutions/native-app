@@ -15,7 +15,7 @@ class Payment extends Component {
           <Text style={styles.headerText}>Santa Clara Garage </Text>
 
           <Image
-            source={require("../icon.jpg")}
+            source={require("../images/icon.jpg")}
           />
         </View>
 

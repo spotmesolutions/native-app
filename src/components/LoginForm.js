@@ -14,7 +14,7 @@ class LoginForm extends Component {
         <View style={styles.logoStyle}>
           <Image
             style={styles.imageStyle}
-            source={require("../logo.jpg")}
+            source={require("../images/logo.jpg")}
           />
         </View>
 
@@ -29,7 +29,7 @@ class LoginForm extends Component {
         <View style={styles.loginContainerStyle}>
         <View>{this.renderButton()}</View>
         <Image
-        source={require("../fbIcon.jpg")}
+        source={require("../images/fbIcon.jpg")}
       />
         </View>
         

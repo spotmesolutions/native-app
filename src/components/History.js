@@ -14,7 +14,7 @@ class History extends Component {
     <Text style={styles.headerText}>Recently Searched </Text>
 
       <Image
-        source={require("../icon.jpg")}
+        source={require("../images/icon.jpg")}
       />
     </View>
 

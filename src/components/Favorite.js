@@ -18,7 +18,7 @@ render(){
     Favorite </Text>
 
       <Image
-        source={require("../icon.jpg")}
+        source={require("../images/icon.jpg")}
       />
     </View>
 

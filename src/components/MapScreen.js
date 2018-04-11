@@ -71,14 +71,14 @@ export default class MapScreen extends Component {
             underlayColor={"white"}
           >
             <Image
-              source={require("../menu.png")}
+              source={require("../images/menu.png")}
             />
           </TouchableHighlight>
 
           <Text style={styles.companyText}>SPOT ME</Text>
 
           <Image
-            source={require("../icon.jpg")}
+            source={require("../images/icon.jpg")}
           />
         </View>
 
