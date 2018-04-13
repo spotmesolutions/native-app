@@ -1,19 +1,61 @@
 import React, { Component } from "react";
-import { Text, View, Image, Button, TouchableHighlight, TextInput,TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  Button,
+  TouchableHighlight,
+  TextInput,
+  TouchableOpacity
+} from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
-import {Card, CardSection } from "./common";
-import {connect} from 'react-redux';
-import { locationChanged } from '../actions';
-import { Actions} from 'react-native-router-flux';
+
+import { Card, CardSection } from "./common";
+import { connect } from "react-redux";
+import { locationChanged, getCurrentLocation } from "../actions";
+import { Actions } from "react-native-router-flux";
 
 class MapScreen extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      locationInput: '',
+  componentWillMount() {
+    console.log('------------------------------------');
+    console.log("componentWillMount()");
+    console.log('------------------------------------');
+    this.props.getCurrentLocation();
+    console.log('------------------------------------');
+    console.log(this.props.currentLocation);
+    console.log('------------------------------------');
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log('------------------------------------');
+    console.log("componentWillReceiveProps(nextProps)");
+    console.log('------------------------------------');
+    this.setState({
+      locationInput: "",
       locationCoordinates: {
-        latitude: 37.339023,
-        longitude: -121.880835,
+        latitude: this.props.currentLocation.latitude,
+        longitude: this.props.currentLocation.longitude,
+        latitudeDelta: 0.1,
+        longitudeDelta: 0.1
+      }
+    });
+    console.log('------------------------------------');
+    console.log(this.props.currentLocation);
+    console.log('------------------------------------');
+    console.log('------------------------------------');
+    console.log(this.state.locationCoordinates);
+    console.log('------------------------------------');
+  }
+  constructor(props) {
+    super(props);
+    console.log('------------------------------------');
+    console.log("constructor");
+    console.log('------------------------------------');
+    this.state = {
+      locationInput: "",
+      locationCoordinates: {
+        latitude: this.props.currentLocation.latitude,
+        longitude: this.props.currentLocation.longitude,
         latitudeDelta: 0.1,
         longitudeDelta: 0.1
       }
@@ -22,7 +64,7 @@ class MapScreen extends Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
-  onLocationChange(text){
+  onLocationChange(text) {
     this.props.locationChanged(text);
   }
 
@@ -32,19 +74,21 @@ class MapScreen extends Component {
     });
   }
 
-
   handleSubmit(textInput) {
     console.log('------------------------------------');
-    console.log(this.props.location);
+    console.log(this.props.currentLocation);
+    console.log('------------------------------------');
+   }
+
+  handleLocationChange(locationCoordinates) {
+    console.log('------------------------------------');
+    console.log("handleLocationChange(locationCoordinates)");
+    console.log('------------------------------------');
+    this.setState({locationCoordinates});
+    console.log('------------------------------------');
+    console.log(this.props.currentLocation);
     console.log('------------------------------------');
   }
-
-  handleLocationChange(response){
-    this.setState({
-      locationCoordiante: response
-    })
-  }
-
 
   render() {
     return (
@@ -54,48 +98,39 @@ class MapScreen extends Component {
             onPress={() => this.props.navigation.navigate("DrawerOpen")}
             underlayColor={"white"}
           >
-            <Image
-              source={require("../images/menu.png")}
-            />
+            <Image source={require("../images/menu.png")} />
           </TouchableHighlight>
 
           <Text style={styles.companyText}>SPOT ME</Text>
 
-          <Image
-            source={require("../images/icon.jpg")}
-          />
+          <Image source={require("../images/icon.jpg")} />
         </View>
 
         <View style={styles.mapAndSearchBarContainer}>
+        {this.props.currentLocation &&
           <MapView
-            provider={ PROVIDER_GOOGLE }
-            style={styles.mapContainer}
-            region={this.state.locationCoordinates}
-            onRegionChange={this.handleLocationChange}
-            zoomEnabled={true} 
-            scrollEnabled={true} 
-          >
-            <MapView.Marker
-              coordinate={{
-                latitude: 37.339023,
-                longitude: -121.880835
-              }}
-              title={"Noth Garage"}
-              description={"Slots: 120/200"}
-            />
-          </MapView>
+          provider={PROVIDER_GOOGLE}
+          style={styles.mapContainer}
+          region={this.state.locationCoordinates}
+          onRegionChange={this.handleLocationChange}
+          zoomEnabled={true}
+          scrollEnabled={true}
+        >
+          <MapView.Marker coordinate={this.state.locationCoordinates} />
+        </MapView>
+        }
+         
 
-            <View style={styles.inputContainer}>
-              <Text style={styles.labelStyle}>Search</Text>
-              <TextInput 
+          <View style={styles.inputContainer}>
+            <Text style={styles.labelStyle}>Search</Text>
+            <TextInput
               style={styles.inputStyle}
-              placeholder="garage name" 
+              placeholder="garage name"
               onChangeText={this.onLocationChange.bind(this)}
               value={this.props.location}
               onSubmitEditing={this.handleSubmit.bind(this)}
-              />
-            </View>
-           
+            />
+          </View>
         </View>
       </View>
     );
@@ -106,7 +141,7 @@ const styles = {
   outerContainer: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   companyText: {
     fontSize: 30,
@@ -137,7 +172,7 @@ const styles = {
     justifyContent: "space-between"
   },
   inputContainer: {
-    height: 40, 
+    height: 40,
     elevation: 1,
     backgroundColor: "white",
     width: "90%",
@@ -148,12 +183,12 @@ const styles = {
     shadowRadius: 1,
     shadowColor: "gray",
     shadowOffset: { height: 0, width: 0 },
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
   },
-  inputStyle:{
-    color: '#000',
+  inputStyle: {
+    color: "#000",
     padding: 10,
     height: 50,
     fontSize: 18,
@@ -162,9 +197,12 @@ const styles = {
   }
 };
 
-const mapStateToProps = ({loc}) => {
-  const {location} = loc;
-  return {location};
+const mapStateToProps = ({ loc }) => {
+  const { location, currentLocation } = loc;
+  return { location, currentLocation };
 };
 
-export default connect(mapStateToProps, {locationChanged})(MapScreen);
+export default connect(mapStateToProps, {
+  locationChanged,
+  getCurrentLocation
+})(MapScreen);

@@ -10,7 +10,6 @@ import Favorite from './components/Favorite';
 import History from './components/History';
 import MapScreen from './components/MapScreen';
 import MenuScreen from './components/MenuScreen';
-
 import {DrawerNavigator} from 'react-navigation';
 
 // const iconSpotMe = resolveAssetSource(
