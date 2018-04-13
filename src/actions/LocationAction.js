@@ -1,4 +1,4 @@
-import { LOCATION_CHANGED } from '.types';
+import { LOCATION_CHANGED } from './types';
 
 export const locationChanged = (text) => {
     return {
