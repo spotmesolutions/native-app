@@ -1,0 +1,1 @@
+export const LOCATION_CHANGED = 'location_changed';

@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { Text, View, Image, Button, TouchableHighlight, TextInput,TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import {Card, CardSection } from "./common";
-import axios from 'axios';
-
+import {connect} from 'react-redux';
+import { locationChanged } from '../actions';
 import { Actions} from 'react-native-router-flux';
 
-export default class MapScreen extends Component {
+class MapScreen extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -22,35 +22,21 @@ export default class MapScreen extends Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
-  callout() {
-    Actions.witnessed({
-      latitude: this.state.locationCoordinates.latitude,
-      longitude: this.state.locationCoordinates.longitude
-      })
+  onLocationChange(text){
+    this.props.locationChanged(text);
   }
+
   handleLocationInput(textInput) {
     this.setState({
       locationInput: textInput
     });
   }
 
-  updateLocationCoordinates(response){
-    var info = response.data.results[0].geometry.location 
-    this.setState({
-      locationCoordinates: {
-        latitude: info.lat,
-        longitude: info.lng,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      }
-    })
-  }
 
   handleSubmit(textInput) {
-    const REACT_APP_GOOGLE_PLACES_API ='AIzaSyCNK0H3ySQivhxwMuF5UAtVH4ReqCxHCek';
-    axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + this.state.locationInput.split(' ').join('') + "&key=" + REACT_APP_GOOGLE_PLACES_API)
-    .then(response => this.updateLocationCoordinates(response))
-    .catch(error => console.log("Failjax: ", error))
+    console.log('------------------------------------');
+    console.log(this.props.location);
+    console.log('------------------------------------');
   }
 
   handleLocationChange(response){
@@ -97,24 +83,6 @@ export default class MapScreen extends Component {
               title={"Noth Garage"}
               description={"Slots: 120/200"}
             />
-
-            <MapView.Marker
-              coordinate={{
-                latitude: 37.333032,
-                longitude: -121.88081
-              }}
-              title={"7th street Garage"}
-              description={"Slots: 100/250"}
-            />
-
-            <MapView.Marker
-              coordinate={{
-                latitude: 37.332785,
-                longitude: -121.883231
-              }}
-              title={"West Garage"}
-              description={"Slots: 90/150"}
-            />
           </MapView>
 
             <View style={styles.inputContainer}>
@@ -122,8 +90,8 @@ export default class MapScreen extends Component {
               <TextInput 
               style={styles.inputStyle}
               placeholder="garage name" 
-              onChangeText={this.handleLocationInput}
-              value={this.state.locationInput}
+              onChangeText={this.onLocationChange.bind(this)}
+              value={this.props.location}
               onSubmitEditing={this.handleSubmit.bind(this)}
               />
             </View>
@@ -168,17 +136,12 @@ const styles = {
     flexDirection: "column",
     justifyContent: "space-between"
   },
-
-  allNonMapThings: {
-    
-  },
-
   inputContainer: {
     height: 40, 
     elevation: 1,
     backgroundColor: "white",
     width: "90%",
-    height: "6%",
+    height: "10%",
     top: 40,
     borderRadius: 3,
     shadowOpacity: 0.75,
@@ -191,10 +154,17 @@ const styles = {
   },
   inputStyle:{
     color: '#000',
-    paddingRight: 5,
-    paddingLeft: 5,
+    padding: 10,
+    height: 50,
     fontSize: 18,
     lineHeight: 23,
     flex: 2
   }
 };
+
+const mapStateToProps = ({loc}) => {
+  const {location} = loc;
+  return {location};
+};
+
+export default connect(mapStateToProps, {locationChanged})(MapScreen);
