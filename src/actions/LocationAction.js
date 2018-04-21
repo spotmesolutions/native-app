@@ -15,13 +15,14 @@ export function getCurrentLocation(){
         console.log('------------------------------------');
 		navigator.geolocation.getCurrentPosition(
 			(position)=>{
+                console.log(position);
                 dispatch({
 					type:CURRENT_LOCATION,
 					payload:position
 				});
 			},
             (error)=> console.log(error.message),
-            {enableHighAccuracy: true}
+            {enableHighAccuracy: true,maximumAge:60000, timeout:5000}
 
 		);
 	}

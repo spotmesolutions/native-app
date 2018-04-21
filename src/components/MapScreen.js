@@ -16,9 +16,9 @@ import { locationChanged, getCurrentLocation } from "../actions";
 import { Actions } from "react-native-router-flux";
 
 class MapScreen extends Component {
-  componentWillMount() {
+  componentDidMount() {
     console.log('------------------------------------');
-    console.log("componentWillMount()");
+    console.log("componentDidMount()");
     console.log('------------------------------------');
     this.props.getCurrentLocation();
     console.log('------------------------------------');
@@ -26,43 +26,25 @@ class MapScreen extends Component {
     console.log('------------------------------------');
   }
 
-  componentWillReceiveProps(nextProps){
-    console.log('------------------------------------');
-    console.log("componentWillReceiveProps(nextProps)");
-    console.log('------------------------------------');
-    this.setState({
-      locationInput: "",
-      locationCoordinates: {
-        latitude: this.props.currentLocation.latitude,
-        longitude: this.props.currentLocation.longitude,
-        latitudeDelta: 0.1,
-        longitudeDelta: 0.1
-      }
-    });
-    console.log('------------------------------------');
-    console.log(this.props.currentLocation);
-    console.log('------------------------------------');
-    console.log('------------------------------------');
-    console.log(this.state.locationCoordinates);
-    console.log('------------------------------------');
-  }
-  constructor(props) {
-    super(props);
-    console.log('------------------------------------');
-    console.log("constructor");
-    console.log('------------------------------------');
-    this.state = {
-      locationInput: "",
-      locationCoordinates: {
-        latitude: this.props.currentLocation.latitude,
-        longitude: this.props.currentLocation.longitude,
-        latitudeDelta: 0.1,
-        longitudeDelta: 0.1
-      }
-    };
-    this.handleLocationInput = this.handleLocationInput.bind(this);
-    this.handleLocationChange = this.handleLocationChange.bind(this);
-  }
+  
+   
+  // constructor(props) {
+  //   super(props);
+  //   console.log('------------------------------------');
+  //   console.log("constructor");
+  //   console.log('------------------------------------');
+  //   this.state = {
+  //     locationInput: "",
+  //     locationCoordinates: {
+  //       latitude: this.props.currentLocation.latitude,
+  //       longitude: this.props.currentLocation.longitude,
+  //       latitudeDelta: 0.1,
+  //       longitudeDelta: 0.1
+  //     }
+  //   };
+  //   this.handleLocationInput = this.handleLocationInput.bind(this);
+  //   this.handleLocationChange = this.handleLocationChange.bind(this);
+  // }
 
   onLocationChange(text) {
     this.props.locationChanged(text);
@@ -107,16 +89,16 @@ class MapScreen extends Component {
         </View>
 
         <View style={styles.mapAndSearchBarContainer}>
-        {this.props.currentLocation &&
+        {this.props.currentLocation.latitude &&
           <MapView
           provider={PROVIDER_GOOGLE}
           style={styles.mapContainer}
-          region={this.state.locationCoordinates}
+          region={this.props.currentLocation}
           onRegionChange={this.handleLocationChange}
           zoomEnabled={true}
           scrollEnabled={true}
         >
-          <MapView.Marker coordinate={this.state.locationCoordinates} />
+          <MapView.Marker coordinate={this.props.currentLocation} />
         </MapView>
         }
          

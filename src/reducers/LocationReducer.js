@@ -1,12 +1,12 @@
 import { LOCATION_CHANGED, CURRENT_LOCATION } from "../actions/types";
 
 const INITIAL_STATE = {
-  location: '',
-  currentLocation:{
-    latitude: 0,
-    longitude: 0,
-    latitudeDelta:0.1,
-    longitudeDelta:0.1
+  location: "",
+  currentLocation: {
+    // latitude: 0,
+    // longitude: 0,
+    // latitudeDelta:0.1,
+    // longitudeDelta:0.1
   }
 };
 
@@ -15,10 +15,18 @@ export default (state = INITIAL_STATE, action) => {
     case LOCATION_CHANGED:
       return { ...state, location: action.payload };
     case CURRENT_LOCATION:
-    console.log('------------------------------------');
-    console.log("CURRENT_LOCATION reducer");
-    console.log('------------------------------------');
-      return { ...state, currentLocation: action.payload };
+      console.log("------------------------------------");
+      console.log("CURRENT_LOCATION reducer");
+      console.log("------------------------------------");
+      return {
+        ...state,
+        currentLocation: {
+          latitude: action.payload.coords.latitude,
+          longitude: action.payload.coords.longitude,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1
+        }
+      };
     default:
       return state;
   }
