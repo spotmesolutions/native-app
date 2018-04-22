@@ -30,7 +30,6 @@ export default (state = INITIAL_STATE, action) => {
         }
       };
     case GET_INPUT:
-      //const { key, value } = action.payload;
       console.log('------------------------------------');
       console.log("GET_INPUT REDUCER");
       console.log(action.payload);

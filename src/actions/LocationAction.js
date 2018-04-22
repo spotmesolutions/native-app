@@ -61,17 +61,10 @@ export function getAddressPredictions(text) {
 }
 
 export function getSelectedAddress(payload) {
-  console.log("getSelectedAddress ACTION outside ");
-  console.log(payload);
-
   return (dispatch) => {
-    console.log("------------------------------------");
-    console.log("getSelectedAddress ACTION inside ");
-    console.log(payload);
-    console.log("------------------------------------");
-    RNGooglePlaces.lookUpPlacesByIDs(payload)
+    
+    RNGooglePlaces.lookUpPlaceByID(payload)
       .then(results => {
-        console.log(results);
         dispatch({
           type: GET_SELECTED_ADDRESS,
           payload: results
@@ -79,7 +72,4 @@ export function getSelectedAddress(payload) {
       })
       .catch(error => console.log(error.message));
   };
-  console.log("------------------------------------");
-  console.log("getSelectedAddress ACTION the end ");
-  console.log("------------------------------------");
 }
