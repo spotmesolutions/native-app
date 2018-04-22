@@ -2,14 +2,16 @@ import {
   LOCATION_CHANGED,
   CURRENT_LOCATION,
   GET_INPUT,
-  GET_ADDRESS_PREDICTIONS
+  GET_ADDRESS_PREDICTIONS,
+  GET_SELECTED_ADDRESS
 } from "../actions/types";
 
 const INITIAL_STATE = {
   location: "",
   currentLocation: {},
   inputData: "",
-  predictions:{}
+  predictions:{},
+  selectedAddress:{}
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -44,6 +46,13 @@ export default (state = INITIAL_STATE, action) => {
     console.log('------------------------------------');
       return{ ...state,
         predictions: action.payload};
+    case GET_SELECTED_ADDRESS:
+    console.log('------------------------------------');
+    console.log("GET_SELECTED_ADDRESS REDUCER");
+    console.log(action.payload);
+    console.log('------------------------------------');
+      return{ ...state,
+        selectedAddress: action.payload};
     default:
       return state;
   }

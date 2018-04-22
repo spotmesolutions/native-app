@@ -6,6 +6,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 
 
  const SearchResults = ({predictions, getSelectedAddress})=> {
+     
 	function handleSelectedAddress(placeID){
 		getSelectedAddress(placeID)
 	}

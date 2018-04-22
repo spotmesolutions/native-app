@@ -11,7 +11,13 @@ import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 import { Card, CardSection } from "./common";
 import { connect } from "react-redux";
-import { locationChanged, getCurrentLocation, getInputData, getAddressPredictions } from "../actions";
+import {
+  locationChanged,
+  getCurrentLocation,
+  getInputData,
+  getAddressPredictions,
+  getSelectedAddress
+} from "../actions";
 import { Actions } from "react-native-router-flux";
 
 import SearchResults from "./SearchResults";
@@ -26,42 +32,8 @@ class MapScreen extends Component {
     this.props.getCurrentLocation();
   }
 
-  //duplicate of handleInput
-  // onLocationChange(text) {
-  //   this.props.locationChanged(text);
-  //   console.log('------------------------------------');
-  //   console.log("onLocationChange");
-  //   console.log(text);
-
-  //   console.log('------------------------------------');
-  // }
-
-  handleInput(text){
-    this.props.getInputData(text);
-    this.props.getAddressPredictions(text);
-
-  }
-
-  handleLocationInput(textInput) {
-    this.setState({
-      locationInput: textInput
-    });
-  }
-
-  handleSubmit(textInput) {
-    console.log(this.props.currentLocation);
-   }
-
-  handleLocationChange(locationCoordinates) {
-    console.log("handleLocationChange(locationCoordinates)");
-    this.setState({locationCoordinates});
-    console.log(this.props.currentLocation);
-  }
-
-  render() {    
-
+  render() {
     return (
-      
       <View style={styles.outerContainer}>
         <View style={styles.navigationBar}>
           <TouchableHighlight
@@ -77,25 +49,27 @@ class MapScreen extends Component {
         </View>
 
         <View style={styles.container}>
-        {this.props.currentLocation.latitude &&
-          <MapView
-          provider={PROVIDER_GOOGLE}
-          style={styles.map}
-          region={this.props.currentLocation}
-        >
-          <MapView.Marker coordinate={this.props.currentLocation} />
-        </MapView>
-        }
-         
+          {this.props.currentLocation.latitude && (
+            <MapView
+              provider={PROVIDER_GOOGLE}
+              style={styles.map}
+              region={this.props.currentLocation}
+            >
+              <MapView.Marker coordinate={this.props.currentLocation} />
+            </MapView>
+          )}
 
           <SearchBox
-          getInputData={this.props.getInputData}
-          getAddressPredictions={this.props.getAddressPredictions}
-          inputData ={this.props.inputData}
+            getInputData={this.props.getInputData}
+            getAddressPredictions={this.props.getAddressPredictions}
+            inputData={this.props.inputData}
+          />
+          {this.props.inputData && (
+            <SearchResults
+              predictions={this.props.predictions}
+              getSelectedAddress={this.props.getSelectedAddress}
             />
-            { this.props.inputData &&
-          <SearchResults predictions={this.props.predictions} />
-            }
+          )}
         </View>
       </View>
     );
@@ -103,14 +77,14 @@ class MapScreen extends Component {
 }
 
 const styles = {
-  container:{
-		flex:1,
-		justifyContent:"center",
-		alignItems:"center"
-	},
-	map:{
-		...StyleSheet.absoluteFillObject
-	},
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject
+  },
   outerContainer: {
     flex: 1,
     flexDirection: "column",
@@ -170,13 +144,20 @@ const styles = {
 };
 
 const mapStateToProps = ({ loc }) => {
-  const { location, currentLocation,inputData,predictions  } = loc;
-  return { location, currentLocation,inputData,predictions };
+  const {
+    location,
+    currentLocation,
+    inputData,
+    predictions,
+    selectedAddress
+  } = loc;
+  return { location, currentLocation, inputData, predictions, selectedAddress };
 };
-
-export default connect(mapStateToProps, {
+const mapActionCreators = {
   locationChanged,
   getCurrentLocation,
   getInputData,
-  getAddressPredictions
-})(MapScreen);
+  getAddressPredictions,
+  getSelectedAddress
+};
+export default connect(mapStateToProps, mapActionCreators)(MapScreen);

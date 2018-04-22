@@ -2,8 +2,10 @@ import {
   LOCATION_CHANGED,
   CURRENT_LOCATION,
   GET_INPUT,
-  GET_ADDRESS_PREDICTIONS
+  GET_ADDRESS_PREDICTIONS,
+  GET_SELECTED_ADDRESS
 } from "./types";
+
 import RNGooglePlaces from "react-native-google-places";
 
 export const locationChanged = text => {
@@ -42,14 +44,13 @@ export function getInputData(payload) {
 }
 
 export function getAddressPredictions(text) {
+  return dispatch => {
     console.log("------------------------------------");
-  console.log("getAddressPredictions ACTION");
-  console.log(text);
-  console.log("------------------------------------");
-  return (dispatch, store) => {
+    console.log("getAddressPredictions ACTION inside ");
+    console.log(text);
+    console.log("------------------------------------");
     RNGooglePlaces.getAutocompletePredictions(text, { country: "USA" })
-      .then((results) =>
-        
+      .then(results =>
         dispatch({
           type: GET_ADDRESS_PREDICTIONS,
           payload: results
@@ -57,4 +58,28 @@ export function getAddressPredictions(text) {
       )
       .catch(error => console.log(error.message));
   };
+}
+
+export function getSelectedAddress(payload) {
+  console.log("getSelectedAddress ACTION outside ");
+  console.log(payload);
+
+  return (dispatch) => {
+    console.log("------------------------------------");
+    console.log("getSelectedAddress ACTION inside ");
+    console.log(payload);
+    console.log("------------------------------------");
+    RNGooglePlaces.lookUpPlacesByIDs(payload)
+      .then(results => {
+        console.log(results);
+        dispatch({
+          type: GET_SELECTED_ADDRESS,
+          payload: results
+        });
+      })
+      .catch(error => console.log(error.message));
+  };
+  console.log("------------------------------------");
+  console.log("getSelectedAddress ACTION the end ");
+  console.log("------------------------------------");
 }
