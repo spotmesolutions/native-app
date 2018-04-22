@@ -12,42 +12,29 @@ import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 import { Card, CardSection } from "./common";
 import { connect } from "react-redux";
-import { locationChanged, getCurrentLocation } from "../actions";
+import { locationChanged, getCurrentLocation, getInputData, getAddressPredictions } from "../actions";
 import { Actions } from "react-native-router-flux";
 
 class MapScreen extends Component {
   componentDidMount() {
-    console.log('------------------------------------');
     console.log("componentDidMount()");
-    console.log('------------------------------------');
     this.props.getCurrentLocation();
+  }
+
+  //duplicate of handleInput
+  onLocationChange(text) {
+    this.props.locationChanged(text);
     console.log('------------------------------------');
-    console.log(this.props.currentLocation);
+    console.log("onLocationChange");
+    console.log(text);
+
     console.log('------------------------------------');
   }
 
-  
-   
-  // constructor(props) {
-  //   super(props);
-  //   console.log('------------------------------------');
-  //   console.log("constructor");
-  //   console.log('------------------------------------');
-  //   this.state = {
-  //     locationInput: "",
-  //     locationCoordinates: {
-  //       latitude: this.props.currentLocation.latitude,
-  //       longitude: this.props.currentLocation.longitude,
-  //       latitudeDelta: 0.1,
-  //       longitudeDelta: 0.1
-  //     }
-  //   };
-  //   this.handleLocationInput = this.handleLocationInput.bind(this);
-  //   this.handleLocationChange = this.handleLocationChange.bind(this);
-  // }
+  handleInput(text){
+    this.props.getInputData(text);
+    this.props.getAddressPredictions(text);
 
-  onLocationChange(text) {
-    this.props.locationChanged(text);
   }
 
   handleLocationInput(textInput) {
@@ -57,23 +44,19 @@ class MapScreen extends Component {
   }
 
   handleSubmit(textInput) {
-    console.log('------------------------------------');
     console.log(this.props.currentLocation);
-    console.log('------------------------------------');
    }
 
   handleLocationChange(locationCoordinates) {
-    console.log('------------------------------------');
     console.log("handleLocationChange(locationCoordinates)");
-    console.log('------------------------------------');
     this.setState({locationCoordinates});
-    console.log('------------------------------------');
     console.log(this.props.currentLocation);
-    console.log('------------------------------------');
   }
 
-  render() {
+  render() {    
+
     return (
+      
       <View style={styles.outerContainer}>
         <View style={styles.navigationBar}>
           <TouchableHighlight
@@ -108,7 +91,7 @@ class MapScreen extends Component {
             <TextInput
               style={styles.inputStyle}
               placeholder="garage name"
-              onChangeText={this.onLocationChange.bind(this)}
+              onChangeText={this.handleInput.bind(this)}
               value={this.props.location}
               onSubmitEditing={this.handleSubmit.bind(this)}
             />
@@ -180,11 +163,13 @@ const styles = {
 };
 
 const mapStateToProps = ({ loc }) => {
-  const { location, currentLocation } = loc;
-  return { location, currentLocation };
+  const { location, currentLocation,inputData,predictions  } = loc;
+  return { location, currentLocation,inputData,predictions };
 };
 
 export default connect(mapStateToProps, {
   locationChanged,
-  getCurrentLocation
+  getCurrentLocation,
+  getInputData,
+  getAddressPredictions
 })(MapScreen);

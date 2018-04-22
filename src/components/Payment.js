@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Image, Button } from "react-native";
+import { Text, View, Image, Button, Dimensions } from "react-native";
 import { Card, CardSection, CustomedButton, Input } from "./common";
 
 class Payment extends Component {
@@ -64,7 +64,9 @@ const styles = {
     backgroundColor: "#fff",
     flexDirection: "column",
     justifyContent: "flex-start",
-    marginTop: 15
+    marginTop: 15,
+    width:Dimensions.get('window').width,
+    height: Dimensions.get('window').height
   },
   headerStyle: {
     margin: 30

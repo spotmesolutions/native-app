@@ -21,8 +21,10 @@ import MapScreen from "./components/MapScreen";
 import Router from "./Router";
 
 import firebase from "firebase";
+const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
 class App extends Component {
+  
   //connect to firebase when app first started
   componentWillMount() {
     const config = {
@@ -35,10 +37,10 @@ class App extends Component {
     };
 
    // firebase.initializeApp(config);
+   
   }
 
   render() {
-    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
     return (
       // store is a container for redux and state

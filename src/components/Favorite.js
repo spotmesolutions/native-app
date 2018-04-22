@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import { Text, View, Image, Button } from "react-native";
+import { Text, View, Image, Button, Dimensions } from "react-native";
 import { Input } from "./common";
 
 class Favorite extends Component{
@@ -72,6 +72,9 @@ const styles = {
     backgroundColor: '#fff',
     flexDirection: "column",
     justifyContent: "flex-start",
+    width:Dimensions.get('window').width,
+    height: Dimensions.get('window').height
+
   },
   imageStyle: {
     flexDirection: 'row',
