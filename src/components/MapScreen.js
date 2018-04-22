@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {
   Text,
-  View,
   Image,
   Button,
   TouchableHighlight,
@@ -15,6 +14,12 @@ import { connect } from "react-redux";
 import { locationChanged, getCurrentLocation, getInputData, getAddressPredictions } from "../actions";
 import { Actions } from "react-native-router-flux";
 
+import SearchResults from "./SearchResults";
+import SearchBox from "./SearchBox";
+
+import { View } from "native-base";
+import { StyleSheet } from "react-native";
+
 class MapScreen extends Component {
   componentDidMount() {
     console.log("componentDidMount()");
@@ -22,14 +27,14 @@ class MapScreen extends Component {
   }
 
   //duplicate of handleInput
-  onLocationChange(text) {
-    this.props.locationChanged(text);
-    console.log('------------------------------------');
-    console.log("onLocationChange");
-    console.log(text);
+  // onLocationChange(text) {
+  //   this.props.locationChanged(text);
+  //   console.log('------------------------------------');
+  //   console.log("onLocationChange");
+  //   console.log(text);
 
-    console.log('------------------------------------');
-  }
+  //   console.log('------------------------------------');
+  // }
 
   handleInput(text){
     this.props.getInputData(text);
@@ -71,31 +76,26 @@ class MapScreen extends Component {
           <Image source={require("../images/icon.jpg")} />
         </View>
 
-        <View style={styles.mapAndSearchBarContainer}>
+        <View style={styles.container}>
         {this.props.currentLocation.latitude &&
           <MapView
           provider={PROVIDER_GOOGLE}
-          style={styles.mapContainer}
+          style={styles.map}
           region={this.props.currentLocation}
-          onRegionChange={this.handleLocationChange}
-          zoomEnabled={true}
-          scrollEnabled={true}
         >
           <MapView.Marker coordinate={this.props.currentLocation} />
         </MapView>
         }
          
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.labelStyle}>Search</Text>
-            <TextInput
-              style={styles.inputStyle}
-              placeholder="garage name"
-              onChangeText={this.handleInput.bind(this)}
-              value={this.props.location}
-              onSubmitEditing={this.handleSubmit.bind(this)}
+          <SearchBox
+          getInputData={this.props.getInputData}
+          getAddressPredictions={this.props.getAddressPredictions}
+          inputData ={this.props.inputData}
             />
-          </View>
+            { this.props.inputData &&
+          <SearchResults predictions={this.props.predictions} />
+            }
         </View>
       </View>
     );
@@ -103,6 +103,14 @@ class MapScreen extends Component {
 }
 
 const styles = {
+  container:{
+		flex:1,
+		justifyContent:"center",
+		alignItems:"center"
+	},
+	map:{
+		...StyleSheet.absoluteFillObject
+	},
   outerContainer: {
     flex: 1,
     flexDirection: "column",
@@ -114,7 +122,6 @@ const styles = {
     fontWeight: "900"
   },
   navigationBar: {
-    flex: 1,
     marginTop: 20,
     alignItems: "center",
     flexDirection: "row",
