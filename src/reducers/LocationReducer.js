@@ -11,7 +11,6 @@ const INITIAL_STATE = {
   currentLocation: {},
   inputData: "",
   predictions:{},
-  selectedAddress:{}
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -51,7 +50,12 @@ export default (state = INITIAL_STATE, action) => {
     console.log(action.payload);
     console.log('------------------------------------');
       return{ ...state,
-        selectedAddress: action.payload};
+        currentLocation: {
+          latitude: action.payload.latitude,
+          longitude: action.payload.longitude,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1
+        },inputData: "" };
     default:
       return state;
   }

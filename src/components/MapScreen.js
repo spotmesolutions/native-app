@@ -30,9 +30,13 @@ class MapScreen extends Component {
   componentDidMount() {
     console.log("componentDidMount()");
     this.props.getCurrentLocation();
-  }
 
+  }
+ 
   render() {
+    console.log('------------------------------------');
+    console.log(this.props.selectedAddress);
+    console.log('------------------------------------');
     return (
       <View style={styles.outerContainer}>
         <View style={styles.navigationBar}>
@@ -148,10 +152,9 @@ const mapStateToProps = ({ loc }) => {
     location,
     currentLocation,
     inputData,
-    predictions,
-    selectedAddress
+    predictions
   } = loc;
-  return { location, currentLocation, inputData, predictions, selectedAddress };
+  return { location, currentLocation, inputData, predictions };
 };
 const mapActionCreators = {
   locationChanged,

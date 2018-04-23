@@ -14,7 +14,6 @@ import Icon from "react-native-vector-icons/FontAwesome";
 		return(
 			<View style={styles.searchBox}>
 				<View style={styles.inputWrapper}>
-					<Text style={styles.label}>Search</Text>
 					<InputGroup>
 						<Icon name="search" size={15} color="#FF5E3A"/>
                         <Input
