@@ -9,7 +9,6 @@ import reducers from "./reducers";
 import ReduxThunk from "redux-thunk";
 
 //Components
-import LoginForm from "./components/LoginForm";
 import GarageDetail from "./components/GarageDetail";
 import FloorSpace from "./components/FloorSpace";
 import Payment from "./components/Payment";
@@ -36,14 +35,13 @@ class App extends Component {
       messagingSenderId: "457180824943"
     };
 
-   // firebase.initializeApp(config);
+    firebase.initializeApp(config);
    
   }
 
   render() {
 
     return (
-      // store is a container for redux and state
       <Provider store={store}>
         <Router />
       </Provider>

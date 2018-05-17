@@ -2,7 +2,6 @@ import React from "react";
 import resolveAssetSource from "resolveAssetSource";
 import { Image, Text } from "react-native";
 
-import LoginForm from './components/LoginForm';
 import GarageDetail from './components/GarageDetail';
 import FloorSpace from './components/FloorSpace';
 import Payment from './components/Payment';
@@ -12,13 +11,7 @@ import MapScreen from './components/MapScreen';
 import MenuScreen from './components/MenuScreen';
 import {DrawerNavigator} from 'react-navigation';
 
-// const iconSpotMe = resolveAssetSource(
-//   require("/Users/Minh/WorkSpace/ReactNative/SpotMe/icon.jpg")
-// );
 
-// const menuBar = resolveAssetSource(
-// require("/Users/Minh/WorkSpace/ReactNative/SpotMe/menu.png")
-// );
 
 const RouterComponent = DrawerNavigator(
   {

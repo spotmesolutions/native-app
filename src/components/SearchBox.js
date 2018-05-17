@@ -10,7 +10,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 		getInputData(text);
 		getAddressPredictions(text);
 	}
-
+        // search box for garage 
 		return(
 			<View style={styles.searchBox}>
 				<View style={styles.inputWrapper}>

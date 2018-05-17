@@ -15,6 +15,7 @@ export const locationChanged = text => {
   };
 };
 
+// get current gps location of the user
 export function getCurrentLocation() {
   return dispatch => {
     console.log("getCurrentLocation() in Actions");
@@ -33,22 +34,15 @@ export function getCurrentLocation() {
 }
 
 export function getInputData(payload) {
-  console.log("------------------------------------");
-  console.log("getinputData ACTION");
-  console.log(payload);
-  console.log("------------------------------------");
   return {
     type: GET_INPUT,
     payload: payload
   };
 }
 
+// get places prediction from google place API
 export function getAddressPredictions(text) {
   return dispatch => {
-    console.log("------------------------------------");
-    console.log("getAddressPredictions ACTION inside ");
-    console.log(text);
-    console.log("------------------------------------");
     RNGooglePlaces.getAutocompletePredictions(text, { country: "USA" })
       .then(results =>
         dispatch({
@@ -60,9 +54,9 @@ export function getAddressPredictions(text) {
   };
 }
 
+// get user-selected place from google place API and translate it into gps coordinate 
 export function getSelectedAddress(payload) {
   return (dispatch) => {
-    
     RNGooglePlaces.lookUpPlaceByID(payload)
       .then(results => {
         dispatch({

@@ -34,9 +34,6 @@ class MapScreen extends Component {
   }
  
   render() {
-    console.log('------------------------------------');
-    console.log(this.props.selectedAddress);
-    console.log('------------------------------------');
     return (
       <View style={styles.outerContainer}>
         <View style={styles.navigationBar}>
