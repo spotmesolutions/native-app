@@ -33,7 +33,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 
 		);
 };
-//var width = Dimensions.get("window").width; //full width
+
 const styles = {
     searchResultsWrapper:{
         top:100,

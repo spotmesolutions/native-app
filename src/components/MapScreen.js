@@ -10,6 +10,7 @@ import {
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 import { Card, CardSection } from "./common";
+
 import { connect } from "react-redux";
 import {
   locationChanged,
@@ -18,11 +19,10 @@ import {
   getAddressPredictions,
   getSelectedAddress
 } from "../actions";
-import { Actions } from "react-native-router-flux";
 
+import { Actions } from "react-native-router-flux";
 import SearchResults from "./SearchResults";
 import SearchBox from "./SearchBox";
-
 import { View } from "native-base";
 import { StyleSheet } from "react-native";
 

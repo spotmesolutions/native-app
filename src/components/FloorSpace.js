@@ -10,7 +10,7 @@ const FloorSpace = props => {
     label='Search'
     placeholder='garage name' 
     />
-    </CardSection>
+    </CardSection> 
   
       <View style={styles.headerStyle}>
         <Text style={styles.headerText}>Santa Clara Garage </Text>
