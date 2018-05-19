@@ -12,16 +12,16 @@ const INITIAL_STATE = {
   currentLocation: {},
   inputData: "",
   predictions:{},
-  sanjose: [],
+  sanjose: {},
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_SJ_API:
-    console.log('------------------------------------');
-    console.log("GET_SJ_API reducer");
-    console.log(action.payload);
-    console.log('------------------------------------');
+    // console.log('------------------------------------');
+    // console.log("GET_SJ_API reducer");
+    // console.log(action.payload);
+    // console.log('------------------------------------');
     return { ...state, sanjose: action.payload };
     case LOCATION_CHANGED:
       return { ...state, location: action.payload };

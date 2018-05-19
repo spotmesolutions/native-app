@@ -6,12 +6,16 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 
 
  const SearchResults = ({predictions, getSelectedAddress})=> {
-     
+    console.log('------------------------------------');
+    console.log("inside SearchResults");
+    console.log(predictions);
+    console.log('------------------------------------');
 	function handleSelectedAddress(placeID){
 		getSelectedAddress(placeID)
 	}
 
 		return(
+           
 			<View style={styles.searchResultsWrapper} >
 				<List 
 					dataArray={predictions}

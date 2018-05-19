@@ -60,6 +60,10 @@ export function getAddressPredictions(text) {
 export function getSelectedAddress(payload) {
   
   return (dispatch) => {
+    console.log('------------------------------------');
+    console.log('inside getSelectedAddress');
+    console.log(payload);
+    console.log('------------------------------------');
     RNGooglePlaces.lookUpPlaceByID(payload)
       .then(results => {
         dispatch({
@@ -79,9 +83,10 @@ export function fetchSanJoseAPI(){
   fetch('http://api.data.sanjoseca.gov/api/v2/datastreams/PARKI-GARAG-DATA/data.json/?auth_key=974e8db20c97825c8fe806dcbeaa3889c7b8c921&limit=50')
   .then((response) => response.json())
   .then((responseJson) => {
+    
     dispatch({
       type: GET_SJ_API,
-      payload: responseJson.result.fArray 
+      payload: sjAPIFilter(responseJson.result.fArray ) 
     });
   })
   .catch((error) => {
@@ -90,3 +95,24 @@ export function fetchSanJoseAPI(){
 
   };
 }
+
+const sjAPIFilter = (sjData) => {
+  console.log('------------------------------------');
+  console.log('sjAPIFilter()');
+  console.log('------------------------------------');
+  var stripHeaderArr = sjData.slice(4);
+  var garageName = 'City Hall Garage';
+  var garageDetail = { 
+    garageName: '',
+    garageStatus: '',
+    garageAvailable: 0,
+  };
+  for (var i = 0; i < stripHeaderArr.length; i++){
+    if(stripHeaderArr[i].fStr === garageName){
+      garageDetail.garageName = stripHeaderArr[i].fStr;
+      garageDetail.garageStatus = stripHeaderArr[i+1].fStr;
+      garageDetail.garageAvailable = stripHeaderArr[i+2].fStr + '/' + stripHeaderArr[i+3].fStr;
+    }
+  }
+  return garageDetail;
+};

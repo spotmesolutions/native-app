@@ -37,10 +37,10 @@ class MapScreen extends Component {
  
   render() {
 
-    console.log('------------------------------------');
-    console.log('mapscreen render');
-    console.log(this.props.sanjose[9]);
-    console.log('------------------------------------');
+    // console.log('------------------------------------');
+    // console.log('mapscreen render');
+    // console.log(this.props.sanjose);
+    // console.log('------------------------------------');
 
     return (
       <View style={styles.outerContainer}>
@@ -67,7 +67,7 @@ class MapScreen extends Component {
               <MapView.Marker 
               coordinate={this.props.currentLocation}
               title = 'Available Lot' 
-              description = '12/32'
+              description = {this.props.sanjose.garageAvailable}
               />
             </MapView>
           )}
