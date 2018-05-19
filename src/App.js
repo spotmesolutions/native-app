@@ -6,7 +6,7 @@ import { View, Text } from "react-native";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers";
-import ReduxThunk from "redux-thunk";
+import thunk from "redux-thunk";
 
 //Components
 import GarageDetail from "./components/GarageDetail";
@@ -20,7 +20,7 @@ import MapScreen from "./components/MapScreen";
 import Router from "./Router";
 
 import firebase from "firebase";
-const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+const store = createStore(reducers,{}, applyMiddleware(thunk));
 
 class App extends Component {
   
@@ -40,6 +40,7 @@ class App extends Component {
   }
 
   render() {
+    //const store = createStore(reducers,{}, applyMiddleware(thunk));
 
     return (
       <Provider store={store}>

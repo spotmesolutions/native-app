@@ -17,7 +17,8 @@ import {
   getCurrentLocation,
   getInputData,
   getAddressPredictions,
-  getSelectedAddress
+  getSelectedAddress,
+  fetchSanJoseAPI
 } from "../actions";
 
 import { Actions } from "react-native-router-flux";
@@ -27,13 +28,20 @@ import { View } from "native-base";
 import { StyleSheet } from "react-native";
 
 class MapScreen extends Component {
-  componentDidMount() {
-    console.log("componentDidMount()");
-    this.props.getCurrentLocation();
+  
+  componentWillMount() {
+     this.props.fetchSanJoseAPI();
+    //this.props.getCurrentLocation();
 
   }
  
   render() {
+
+    console.log('------------------------------------');
+    console.log('mapscreen render');
+    console.log(this.props.sanjose[9]);
+    console.log('------------------------------------');
+
     return (
       <View style={styles.outerContainer}>
         <View style={styles.navigationBar}>
@@ -56,7 +64,11 @@ class MapScreen extends Component {
               style={styles.map}
               region={this.props.currentLocation}
             >
-              <MapView.Marker coordinate={this.props.currentLocation} />
+              <MapView.Marker 
+              coordinate={this.props.currentLocation}
+              title = 'Available Lot' 
+              description = '12/32'
+              />
             </MapView>
           )}
 
@@ -149,15 +161,17 @@ const mapStateToProps = ({ loc }) => {
     location,
     currentLocation,
     inputData,
-    predictions
+    predictions,
+    sanjose
   } = loc;
-  return { location, currentLocation, inputData, predictions };
+  return { location, currentLocation, inputData, predictions, sanjose };
 };
 const mapActionCreators = {
   locationChanged,
   getCurrentLocation,
   getInputData,
   getAddressPredictions,
-  getSelectedAddress
+  getSelectedAddress,
+  fetchSanJoseAPI
 };
 export default connect(mapStateToProps, mapActionCreators)(MapScreen);

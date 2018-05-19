@@ -3,8 +3,10 @@ import {
   CURRENT_LOCATION,
   GET_INPUT,
   GET_ADDRESS_PREDICTIONS,
-  GET_SELECTED_ADDRESS
+  GET_SELECTED_ADDRESS,
+  GET_SJ_API
 } from "./types";
+import firebase from 'firebase';
 
 import RNGooglePlaces from "react-native-google-places";
 
@@ -56,6 +58,7 @@ export function getAddressPredictions(text) {
 
 // get user-selected place from google place API and translate it into gps coordinate 
 export function getSelectedAddress(payload) {
+  
   return (dispatch) => {
     RNGooglePlaces.lookUpPlaceByID(payload)
       .then(results => {
@@ -65,5 +68,25 @@ export function getSelectedAddress(payload) {
         });
       })
       .catch(error => console.log(error.message));
+  };
+}
+
+//get realtime San Jose Public Garage Information from their public API
+export function fetchSanJoseAPI(){
+
+  return (dispatch) =>{ 
+
+  fetch('http://api.data.sanjoseca.gov/api/v2/datastreams/PARKI-GARAG-DATA/data.json/?auth_key=974e8db20c97825c8fe806dcbeaa3889c7b8c921&limit=50')
+  .then((response) => response.json())
+  .then((responseJson) => {
+    dispatch({
+      type: GET_SJ_API,
+      payload: responseJson.result.fArray 
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+    });
+
   };
 }

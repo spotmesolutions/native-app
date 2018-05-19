@@ -3,7 +3,8 @@ import {
   CURRENT_LOCATION,
   GET_INPUT,
   GET_ADDRESS_PREDICTIONS,
-  GET_SELECTED_ADDRESS
+  GET_SELECTED_ADDRESS,
+  GET_SJ_API
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -11,10 +12,17 @@ const INITIAL_STATE = {
   currentLocation: {},
   inputData: "",
   predictions:{},
+  sanjose: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case GET_SJ_API:
+    console.log('------------------------------------');
+    console.log("GET_SJ_API reducer");
+    console.log(action.payload);
+    console.log('------------------------------------');
+    return { ...state, sanjose: action.payload };
     case LOCATION_CHANGED:
       return { ...state, location: action.payload };
     case CURRENT_LOCATION:
