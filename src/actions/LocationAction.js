@@ -60,10 +60,7 @@ export function getAddressPredictions(text) {
 export function getSelectedAddress(payload) {
   
   return (dispatch) => {
-    console.log('------------------------------------');
-    console.log('inside getSelectedAddress');
-    console.log(payload);
-    console.log('------------------------------------');
+   
     RNGooglePlaces.lookUpPlaceByID(payload)
       .then(results => {
         dispatch({
@@ -76,17 +73,19 @@ export function getSelectedAddress(payload) {
 }
 
 //get realtime San Jose Public Garage Information from their public API
-export function fetchSanJoseAPI(){
+export function fetchSanJoseAPI(garageNameFullText){
 
   return (dispatch) =>{ 
 
   fetch('http://api.data.sanjoseca.gov/api/v2/datastreams/PARKI-GARAG-DATA/data.json/?auth_key=974e8db20c97825c8fe806dcbeaa3889c7b8c921&limit=50')
   .then((response) => response.json())
   .then((responseJson) => {
-    
+    console.log('------------------------------------');
+    console.log(responseJson.result.fArray);
+    console.log('------------------------------------');
     dispatch({
       type: GET_SJ_API,
-      payload: sjAPIFilter(responseJson.result.fArray ) 
+      payload: sjAPIFilter(responseJson.result.fArray,garageNameFullText ) 
     });
   })
   .catch((error) => {
@@ -96,23 +95,68 @@ export function fetchSanJoseAPI(){
   };
 }
 
-const sjAPIFilter = (sjData) => {
+
+const sjAPIFilter = (sjData,garageNameFullText) => {
   console.log('------------------------------------');
   console.log('sjAPIFilter()');
   console.log('------------------------------------');
-  var stripHeaderArr = sjData.slice(4);
-  var garageName = 'City Hall Garage';
+  var stripHeaderArr = sjData.slice(4); // array of objects from san jose api garage
+
+  var arrOfString = garageNameFullText.split(',');
+  var garageName = arrOfString[0]; // garage name got from google api
+
   var garageDetail = { 
-    garageName: '',
-    garageStatus: '',
-    garageAvailable: 0,
+    garageName: 'no information',
+    garageStatus: 'no information',
+    garageAvailable: 'no information',
   };
+
   for (var i = 0; i < stripHeaderArr.length; i++){
-    if(stripHeaderArr[i].fStr === garageName){
+    // if(stripHeaderArr[i].fStr === garageName){
+      if(isSameName(stripHeaderArr[i].fStr,garageName)){
       garageDetail.garageName = stripHeaderArr[i].fStr;
       garageDetail.garageStatus = stripHeaderArr[i+1].fStr;
       garageDetail.garageAvailable = stripHeaderArr[i+2].fStr + '/' + stripHeaderArr[i+3].fStr;
     }
   }
   return garageDetail;
+};
+
+const isSameName = (sjAPIName, googleMapName) => {
+  console.log('------------------------------------');
+  console.log("inside isSameName");
+  console.log("SJ: " + sjAPIName);
+  console.log("GOOGLE: " + googleMapName);
+  var isSame = 0;
+  var count = 0;
+  console.log("Count before: " + count);
+
+  var arrOfsjAPIName = sjAPIName.split(' ');
+  var arrOfgoogleMapName = googleMapName.split(' ');
+
+  var lengOfsjAPIName = arrOfsjAPIName.length;
+  var lengOfgoogleMapName = arrOfgoogleMapName.length;
+  
+  for (var i = 0; i < lengOfsjAPIName; i ++){
+    var tempOfsjAPIName = arrOfsjAPIName[i];
+    for (var j = 0; j < lengOfgoogleMapName; j ++){
+
+         
+      if(tempOfsjAPIName === arrOfgoogleMapName[j]){
+          count++;
+      }
+
+    }
+  }
+  
+  console.log("Count after: " + count);
+  console.log("LengthSJ: " + lengOfsjAPIName);
+
+  if(count === lengOfsjAPIName){
+    
+    isSame = 1;
+  }
+  console.log("isSame: " + isSame);
+  console.log('------------------------------------');
+  return isSame;
 };

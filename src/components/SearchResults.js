@@ -5,13 +5,11 @@ import { View, List, ListItem, Left, Body } from "native-base";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 
- const SearchResults = ({predictions, getSelectedAddress})=> {
-    console.log('------------------------------------');
-    console.log("inside SearchResults");
-    console.log(predictions);
-    console.log('------------------------------------');
-	function handleSelectedAddress(placeID){
-		getSelectedAddress(placeID)
+ const SearchResults = ({predictions, getSelectedAddress,fetchSanJoseAPI})=> {
+   
+	function handleSelectedAddress(placeID,garageFullText){
+        getSelectedAddress(placeID);
+        fetchSanJoseAPI(garageFullText);
 	}
 
 		return(
@@ -21,7 +19,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 					dataArray={predictions}
 					renderRow={(item)=>
 						<View>
-							<ListItem onPress={()=>handleSelectedAddress(item.placeID)} button avatar>
+							<ListItem onPress={()=>handleSelectedAddress(item.placeID,item.fullText)} button avatar>
 								<Left style={styles.leftContainer}>
 									<Icon style={styles.leftIcon} name="location-on" />
 								</Left>

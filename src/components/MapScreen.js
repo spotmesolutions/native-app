@@ -30,7 +30,7 @@ import { StyleSheet } from "react-native";
 class MapScreen extends Component {
   
   componentWillMount() {
-     this.props.fetchSanJoseAPI();
+     //this.props.fetchSanJoseAPI();
     //this.props.getCurrentLocation();
 
   }
@@ -81,6 +81,7 @@ class MapScreen extends Component {
             <SearchResults
               predictions={this.props.predictions}
               getSelectedAddress={this.props.getSelectedAddress}
+              fetchSanJoseAPI={this.props.fetchSanJoseAPI}
             />
           )}
         </View>
