@@ -7,7 +7,8 @@ import {
   TextInput,
   TouchableOpacity
 } from "react-native";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+// NOTE: need to be enabled in google api for map
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps"; 
 
 
 import { connect } from "react-redux";

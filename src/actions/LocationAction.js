@@ -8,6 +8,7 @@ import {
 } from "./types";
 import firebase from 'firebase';
 
+// NOTE: need to be enabled in google api for places
 import RNGooglePlaces from "react-native-google-places";
 
 export const locationChanged = text => {
@@ -18,12 +19,11 @@ export const locationChanged = text => {
 };
 
 // get current gps location of the user
+//NOTE: if doesnt work , go to: simulator menu -> debug -> location -> apple 
 export function getCurrentLocation() {
   return dispatch => {
-    console.log("getCurrentLocation() in Actions");
     navigator.geolocation.getCurrentPosition(
       position => {
-        console.log(position);
         dispatch({
           type: CURRENT_LOCATION,
           payload: position
@@ -32,7 +32,7 @@ export function getCurrentLocation() {
       error => console.log(error.message), {
         enableHighAccuracy: true,
         maximumAge: 60000,
-        timeout: 5000
+        timeout: 15000
       }
     );
   };
