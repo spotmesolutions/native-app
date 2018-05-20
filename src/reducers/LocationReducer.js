@@ -11,20 +11,20 @@ const INITIAL_STATE = {
   location: "",
   currentLocation: {},
   inputData: "",
-  predictions:{},
+  predictions: {},
   sanjose: {},
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_SJ_API:
-    // console.log('------------------------------------');
-    // console.log("GET_SJ_API reducer");
-    // console.log(action.payload);
-    // console.log('------------------------------------');
-    return { ...state, sanjose: action.payload };
+      return { ...state,
+        sanjose: action.payload
+      };
     case LOCATION_CHANGED:
-      return { ...state, location: action.payload };
+      return { ...state,
+        location: action.payload
+      };
     case CURRENT_LOCATION:
       return {
         ...state,
@@ -41,16 +41,19 @@ export default (state = INITIAL_STATE, action) => {
         inputData: action.payload
       };
     case GET_ADDRESS_PREDICTIONS:
-      return{ ...state,
-        predictions: action.payload};
+      return { ...state,
+        predictions: action.payload
+      };
     case GET_SELECTED_ADDRESS:
-      return{ ...state,
+      return { ...state,
         currentLocation: {
           latitude: action.payload.latitude,
           longitude: action.payload.longitude,
           latitudeDelta: 0.1,
           longitudeDelta: 0.1
-        },inputData: "" };
+        },
+        inputData: ""
+      };
     default:
       return state;
   }

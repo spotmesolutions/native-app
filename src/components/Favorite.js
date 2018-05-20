@@ -1,6 +1,5 @@
 import React,{Component} from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
-import { Input } from "./common";
 
 class Favorite extends Component{
 render(){

@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
-import { Card, CardSection } from "./common";
 
 import { connect } from "react-redux";
 import {
@@ -30,18 +29,10 @@ import { StyleSheet } from "react-native";
 class MapScreen extends Component {
   
   componentWillMount() {
-     //this.props.fetchSanJoseAPI();
-    //this.props.getCurrentLocation();
-
+    this.props.getCurrentLocation(); //***** Bugs message: Unable to fetch location within 5.0s. 
   }
  
   render() {
-
-    // console.log('------------------------------------');
-    // console.log('mapscreen render');
-    // console.log(this.props.sanjose);
-    // console.log('------------------------------------');
-
     return (
       <View style={styles.outerContainer}>
         <View style={styles.navigationBar}>
@@ -66,7 +57,7 @@ class MapScreen extends Component {
             >
               <MapView.Marker 
               coordinate={this.props.currentLocation}
-              title = 'Available Lot' 
+              title =  {this.props.sanjose.garageName}
               description = {this.props.sanjose.garageAvailable}
               />
             </MapView>

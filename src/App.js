@@ -9,8 +9,6 @@ import reducers from "./reducers";
 import thunk from "redux-thunk";
 
 //Components
-import GarageDetail from "./components/GarageDetail";
-import FloorSpace from "./components/FloorSpace";
 import Payment from "./components/Payment";
 import Favorite from "./components/Favorite";
 import History from "./components/History";
@@ -34,14 +32,10 @@ class App extends Component {
       storageBucket: "spotme-5eeda.appspot.com",
       messagingSenderId: "457180824943"
     };
-
     firebase.initializeApp(config);
-   
   }
 
   render() {
-    //const store = createStore(reducers,{}, applyMiddleware(thunk));
-
     return (
       <Provider store={store}>
         <Router />

@@ -4,13 +4,12 @@ import { View, InputGroup, Input } from "native-base";
 
 import Icon from "react-native-vector-icons/FontAwesome";
 
-
+// component for search box within google map
  const SearchBox = ({getInputData, getAddressPredictions,inputData})=> {
 	function handleInput(text){
 		getInputData(text);
 		getAddressPredictions(text);
 	}
-        // search box for garage 
 		return(
 			<View style={styles.searchBox}>
 				<View style={styles.inputWrapper}>

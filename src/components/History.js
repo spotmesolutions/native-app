@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { Text, View, Image, Button } from "react-native";
-import { Card, CardSection, Input } from "./common";
 class History extends Component {
   render(){
 

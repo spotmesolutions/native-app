@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
-import { Card, CardSection, CustomedButton, Input } from "./common";
 
 class Payment extends Component {
   render() {
@@ -51,7 +50,10 @@ class Payment extends Component {
           <Text style={styles.detailText}> 8902****** Master 02/09</Text>
         </View>
         <View style={styles.payStyle}>
-          <CustomedButton>Confirm</CustomedButton>
+          <Button
+          title = "confirm"
+          onPress= {() => {}}
+          />
         </View>
       </View>
     );
