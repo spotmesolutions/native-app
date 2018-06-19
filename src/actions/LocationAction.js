@@ -97,8 +97,25 @@ export function fetchSanJoseAPI(garageNameFullText) {
 
 // sjData :  SJ API array of data object 
 // garageNameFullText : google search garage name 
-//  sjAPIFilter() : funtion will return garage detail object if match with google search
+//  sjAPIFilter() : function will return garage detail object if match with google search
 const sjAPIFilter = (sjData, garageNameFullText) => {
+  /*
+    the api call result payload is a long list of small json objects,
+    and parsing it is similar to parsing lines of text, like this:
+
+    Fourth Street Garage // garage name
+    Open                 // garage status
+    353                  // available spaces
+    360                  // total spaces
+    City Hall Garage     // next garage ...
+    Open
+    244
+    302
+    ...
+  */
+
+  // chop off the first 4 fields that represent the headers,
+  // e.g. "Garage_Name" and "Garage_Status"
   var stripHeaderArr = sjData.slice(4); // array of objects from san jose api garage
   var arrOfString = garageNameFullText.split(',');
   var garageName = arrOfString[0]; // garage name got from google api
@@ -109,6 +126,14 @@ const sjAPIFilter = (sjData, garageNameFullText) => {
     garageAvailable: 'no information',
   };
 
+  /*
+    as mentioned above, this is parsing a list of elements with a
+    format similar to:
+      Fourth Street Garage // garage name
+      Open                 // garage status
+      353                  // available spaces
+      360                  // total spaces
+  */
   for (var i = 0; i < stripHeaderArr.length; i++) {
     if (isSameName(stripHeaderArr[i].fStr, garageName)) { // if google search name match the name of sj api garage name => it is the correct data
       garageDetail.garageName = stripHeaderArr[i].fStr;
