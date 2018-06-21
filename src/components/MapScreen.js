@@ -30,10 +30,17 @@ import { StyleSheet } from "react-native";
 class MapScreen extends Component {
   
   componentWillMount() {
+    console.log('------------------------------------');
+    console.log("component will mount mapscreen");
+    console.log('------------------------------------');
     this.props.getCurrentLocation(); //***** Bugs message: Unable to fetch location within 5.0s. 
   }
  
   render() {
+    console.log('------------------------------------');
+    console.log("render in mapscreen");
+    console.log("current location ", this.props.currentLocation);
+    console.log('------------------------------------');
     return (
       <View style={styles.outerContainer}>
         <View style={styles.navigationBar}>
