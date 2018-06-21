@@ -1,5 +1,6 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
+//Cindy was here
 
 class Favorite extends Component{
 render(){
@@ -11,7 +12,7 @@ render(){
     onPress={() => this.props.navigation.navigate('DrawerOpen')}
     title="Back"
     />
-    <Text 
+    <Text
     style={styles.headerText}
     >
     Favorite </Text>
@@ -104,7 +105,7 @@ const styles = {
       fontSize: 30,
       color: "#379b8c",
       fontWeight: "900"
-  
+
   },
   detailText: {
     fontSize: 20
