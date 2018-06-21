@@ -26,6 +26,9 @@ export default (state = INITIAL_STATE, action) => {
         location: action.payload
       };
     case CURRENT_LOCATION:
+      console.log('------------------------------------');
+      console.log("reducer CURRENT LOCATION");
+      console.log('------------------------------------');
       return {
         ...state,
         currentLocation: {

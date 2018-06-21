@@ -24,6 +24,9 @@ export function getCurrentLocation() {
   return dispatch => {
     navigator.geolocation.getCurrentPosition(
       position => {
+        console.log('------------------------------------');
+        console.log("action get current location ");
+        console.log('------------------------------------');
         dispatch({
           type: CURRENT_LOCATION,
           payload: position
