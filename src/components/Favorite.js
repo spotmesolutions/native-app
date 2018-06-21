@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
-
+//Lukes was here
 class Favorite extends Component{
 render(){
   return (
