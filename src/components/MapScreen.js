@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 // NOTE: need to be enabled in google api for map
+//testing
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps"; 
 
 
