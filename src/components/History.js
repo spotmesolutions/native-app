@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { Text, View, Image, Button } from "react-native";
-class History extends Component {
+class garageHistory extends Component {
   render(){
 
   return (
@@ -119,4 +119,4 @@ const styles = {
     textDecorationLine: "underline"
   }
 };
-export default History;
+export default garageHistory;

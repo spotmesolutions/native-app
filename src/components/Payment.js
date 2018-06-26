@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
 
-class Payment extends Component {
+class accountInformation extends Component {
   render() {
     return (
       <View style={styles.containerStyle}>
@@ -98,4 +98,4 @@ const styles = {
     textDecorationLine: "underline"
   }
 };
-export default Payment;
+export default accountInformation;

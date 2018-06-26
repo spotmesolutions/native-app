@@ -2,7 +2,8 @@ import React,{Component} from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
 
 //Mark was here
-class Favorite extends Component{
+//renamed files
+class Favorites extends Component{
 render(){
   return (
     <View style={styles.containerStyle}>
@@ -115,4 +116,4 @@ const styles = {
     textDecorationLine: "underline"
   }
 };
-export default Favorite;
+export default Favorites;
