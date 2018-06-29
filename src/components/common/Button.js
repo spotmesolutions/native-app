@@ -15,22 +15,31 @@ const Button = ({ onPress, children }) => {
 
 const styles = {
   buttonStyle: {
-    flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5
+    borderBottomWidth: 3,
+    //padding: 5,
+    backgroundColor: '#1DE0AB',
+    //justifyContent: 'flex-start',
+    flexDirection: 'row',
+    borderColor: '#000000',
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 3,
+    borderRadius: 20,
+    height: 40,
+    width: 150,
+    elevation: 1,
+    // marginLeft: 20,
+    // marginRight: 20,
+    // marginTop: 20,
   },
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
+    color: '#ffffff',
     fontSize: 16,
-    fontWeight: '600',
-    paddingTop: 10,
-    paddingBottom: 10
+    fontWeight: 'bold',
+    //paddingTop: 10,
+    //paddingBottom: 10
   }
 };
 

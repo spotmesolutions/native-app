@@ -8,7 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 // NOTE: need to be enabled in google api for map
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps"; 
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 
 import { connect } from "react-redux";
@@ -28,11 +28,11 @@ import { View } from "native-base";
 import { StyleSheet } from "react-native";
 
 class MapScreen extends Component {
-  
+
   componentWillMount() {
-    this.props.getCurrentLocation(); //***** Bugs message: Unable to fetch location within 5.0s. 
+    this.props.getCurrentLocation(); //***** Bugs message: Unable to fetch location within 5.0s.
   }
- 
+
   render() {
     return (
       <View style={styles.outerContainer}>
@@ -41,7 +41,7 @@ class MapScreen extends Component {
             onPress={() => this.props.navigation.navigate("DrawerOpen")}
             underlayColor={"white"}
           >
-            <Image source={require("../images/menu.png")} />
+            <Image source={require('../images/menu.png')} />
           </TouchableHighlight>
 
           <Text style={styles.companyText}>SPOT ME</Text>
@@ -56,7 +56,7 @@ class MapScreen extends Component {
               style={styles.map}
               region={this.props.currentLocation}
             >
-              <MapView.Marker 
+              <MapView.Marker
               coordinate={this.props.currentLocation}
               title =  {this.props.sanjose.garageName}
               description = {this.props.sanjose.garageAvailable}
