@@ -13,6 +13,7 @@
     "react-native": "0.55.3",
     "react-native-base": "^1.1.0",
     "react-native-google-places": "^2.5.0",
+    "react-native-mapbox-gl": "^5.2.1-deprecated",
     "react-native-maps": "^0.21.0",
     "react-native-router-flux": "^4.0.0-beta.28",
     "react-native-vector-icons": "^4.6.0",

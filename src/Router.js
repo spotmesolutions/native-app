@@ -1,9 +1,9 @@
-import React from 'react';
-import resolveAssetSource from 'resolveAssetSource';
+import React from "react";
+import resolveAssetSource from "resolveAssetSource";
 import {
   Image,
   Text
-} from 'react-native';
+} from "react-native";
 
 
 import Payment from './components/Payment';
@@ -13,10 +13,10 @@ import MapScreen from './components/MapScreen';
 import MenuScreen from './components/MenuScreen';
 import LoginForm from './components/LoginForm';
 
+
 import {
   DrawerNavigator
 } from 'react-navigation';
-
 
 
 const RouterComponent = DrawerNavigator({

@@ -29,7 +29,7 @@ const styles = {
   },
   ImageStyle: {
     width: 160,
-    height: 130
+    height: 70
   },
 };
 

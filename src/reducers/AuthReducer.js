@@ -5,6 +5,9 @@ import {
   LOGIN_USER_FAIL,
   LOGIN_USER
 } from '../actions/types';
+import { MapScreen } from '../components/MapScreen';
+import { RouterComponent } from '../Router';
+
 
 const INITIAL_STATE = {
   email: '',
@@ -31,7 +34,8 @@ export default (state = INITIAL_STATE, action) => {
     case LOGIN_USER:
       return { ...state, loading: true, error: '' };
     case LOGIN_USER_SUCCESS:
-      console.log('Success!');
+    //console.log('Success!');
+      // this.props.navigation.navigate('DrawerOpen');
       return { ...state, ...INITIAL_STATE, user: action.payload, success: 'Login Success!' };
     case LOGIN_USER_FAIL:
       console.log(...state);

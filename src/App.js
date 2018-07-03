@@ -1,27 +1,24 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from "react";
+import { View, Text } from "react-native";
 
 //provider use to connect react to redux
 // connect() methods in components use provider
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reducers from './reducers';
-import thunk from 'redux-thunk';
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reducers from "./reducers";
+import thunk from "redux-thunk";
 
 //Components
-import Payment from './components/Payment';
-import Favorite from './components/Favorite';
-import History from './components/History';
-import MapScreen from './components/MapScreen';
+import Payment from "./components/Payment";
+import Favorite from "./components/Favorite";
+import History from "./components/History";
+import MapScreen from "./components/MapScreen";
 
 //Router for navigating screens
-import Router from './Router';
+import Router from "./Router";
 
-import firebase from 'firebase';
-
-import LoginForm from './components/LoginForm';
-
-const store = createStore(reducers, {}, applyMiddleware(thunk));
+import firebase from "firebase";
+const store = createStore(reducers,{}, applyMiddleware(thunk));
 
 class App extends Component {
 

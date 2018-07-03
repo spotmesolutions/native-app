@@ -10,7 +10,7 @@ class History extends Component {
     onPress={() => this.props.navigation.navigate('DrawerOpen')}
     title='back'
     />
-    <Text style={styles.headerText}>Recently Searched </Text>
+    <Text style={styles.headerText}> Recently Searched </Text>
 
       <Image
         source={require("../images/icon.jpg")}
@@ -25,7 +25,7 @@ class History extends Component {
         <View style={styles.detailStyleRightColumn}>
           <Text style={styles.subHeaderText}>Slots</Text>
         </View>
-       
+
         <View style={styles.detailStyleRightColumn}>
           <Text style={styles.subHeaderText}>Price</Text>
         </View>
@@ -38,7 +38,7 @@ class History extends Component {
         <View style={styles.detailStyleRightColumn}>
           <Text style={styles.detailText}>120/250</Text>
         </View>
-      
+
       <View style={styles.detailStyleRightColumn}>
       <Text style={styles.detailText}>$8/hr</Text>
     </View>
@@ -51,7 +51,7 @@ class History extends Component {
         <View style={styles.detailStyleRightColumn}>
           <Text style={styles.detailText}>100/200</Text>
         </View>
-      
+
       <View style={styles.detailStyleRightColumn}>
       <Text style={styles.detailText}>$10/hr</Text>
     </View>
@@ -64,7 +64,7 @@ class History extends Component {
         <View style={styles.detailStyleRightColumn}>
           <Text style={styles.detailText}>220/350</Text>
         </View>
-      
+
       <View style={styles.detailStyleRightColumn}>
       <Text style={styles.detailText}>$15/hr</Text>
     </View>
@@ -77,7 +77,7 @@ class History extends Component {
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: '#fff',    
+    backgroundColor: '#fff',
     flexDirection: "column",
     justifyContent: "flex-start",
   },
