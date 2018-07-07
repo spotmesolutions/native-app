@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
-
+//Lukes was here
 class Favorite extends Component{
 render(){
   return (
@@ -101,15 +101,18 @@ const styles = {
     margin: 10
   },
   headerText: {
+    fontFamily: 'Avenir Next Condensed',
       fontSize: 30,
       color: "#379b8c",
       fontWeight: "900"
   
   },
   detailText: {
+    fontFamily: 'Avenir Next Condensed',
     fontSize: 20
   },
   subHeaderText: {
+    fontFamily: 'Avenir Next Condensed',
     fontSize: 25,
     textDecorationLine: "underline"
   }

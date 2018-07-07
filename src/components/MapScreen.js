@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 // NOTE: need to be enabled in google api for map
+//testing
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps"; 
 
 
@@ -44,7 +45,7 @@ class MapScreen extends Component {
             <Image source={require("../images/menu.png")} />
           </TouchableHighlight>
 
-          <Text style={styles.companyText}>SPOT ME</Text>
+          <Text style={styles.myCustomText}>SPOT ME</Text>
 
           <Image source={require("../images/icon.jpg")} />
         </View>
@@ -92,13 +93,20 @@ const styles = {
     ...StyleSheet.absoluteFillObject
   },
   outerContainer: {
+    backgroundColor: "#42b8ba",
     flex: 1,
     flexDirection: "column",
     justifyContent: "center"
   },
+  myCustomText: {
+    fontFamily: 'Avenir Next Condensed',
+    fontSize: 30,
+    color: "black",
+    fontWeight: "900"
+  },
   companyText: {
     fontSize: 30,
-    color: "#42b8ba",
+    color: "black",
     fontWeight: "900"
   },
   navigationBar: {

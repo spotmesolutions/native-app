@@ -22,19 +22,23 @@ const RouterComponent = DrawerNavigator({
     path: '/',
     screen: MapScreen
   },
+  Profile: {
+    path: '/',
+    screen: MenuScreen
+  },
   Favorite: {
     path: '/sent',
     screen: Favorite
+  },
+  Recent: {
+    path: '/sent',
+    screen: History
   },
   Payment: {
     path: '/sent',
     screen: Payment
   },
-  History: {
-    path: '/sent',
-    screen: History
-  },
-  Settings: {
+  Account: {
     path: '/sent',
     screen: MenuScreen
   },
@@ -47,8 +51,7 @@ const RouterComponent = DrawerNavigator({
   drawerPosition: 'left',
   drawerWidth: 200,
   contentOptions: {
-    activeBackgroundColor: '#b2eae2',
-
+    activeBackgroundColor: '#b2eae2'
   }
 });
 

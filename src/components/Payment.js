@@ -86,14 +86,17 @@ const styles = {
     alignItems: "center"
   },
   headerText: {
+    fontFamily: 'Avenir Next Condensed',
     fontSize: 30,
       color: "#379b8c",
       fontWeight: "900"
   },
   detailText: {
+    fontFamily: 'Avenir Next Condensed',
     fontSize: 20
   },
   detailTextTitle: {
+    fontFamily: 'Avenir Next Condensed',
     fontSize: 20,
     textDecorationLine: "underline"
   }
