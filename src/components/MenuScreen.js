@@ -5,7 +5,7 @@ export default class MenuScreen extends Component{
     render(){
         return (
             <View style = {styles.containerStyle}>
-            <Text>* This feature is under development * </Text>
+            <Text>* Here is the latest Garage Info* </Text>
             <Button
             onPress={() => this.props.navigation.navigate('DrawerOpen')}
             title="Back"

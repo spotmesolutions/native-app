@@ -29,39 +29,53 @@ import { View } from "native-base";
 import { StyleSheet } from "react-native";
 
 class MapScreen extends Component {
-  
+  static navigationOptions = {
+    drawerIcon: (
+   <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_home_3x.png")} />
+    )
+  }
   componentWillMount() {
     this.props.getCurrentLocation(); //***** Bugs message: Unable to fetch location within 5.0s. 
+
   }
+
  
   render() {
     return (
+      //Header of Navigation Bar
       <View style={styles.outerContainer}>
         <View style={styles.navigationBar}>
           <TouchableHighlight
+            // <Image source={require("../images/menu.png")} />
+
             onPress={() => this.props.navigation.navigate("DrawerOpen")}
             underlayColor={"white"}
           >
             <Image source={require("../images/menu.png")} />
           </TouchableHighlight>
 
-          <Text style={styles.myCustomText}>SPOT ME</Text>
+          <Text style={styles.myCustomText}>Spot Me</Text>
 
-          <Image source={require("../images/icon.jpg")} />
+          <Image source={require("../images/fbIcon.jpg")} />
         </View>
 
         <View style={styles.container}>
           {this.props.currentLocation.latitude && (
             <MapView
+            showsUserLocation
               provider={PROVIDER_GOOGLE}
               style={styles.map}
               region={this.props.currentLocation}
             >
               <MapView.Marker 
+            onPress={() => this.props.navigation.navigate("DrawerOpen")}
+              title = "Garage"
               coordinate={this.props.currentLocation}
               title =  {this.props.sanjose.garageName}
               description = {this.props.sanjose.garageAvailable}
-              />
+              pinColor = "blue"
+              onPress={() => this.props.navigation.navigate('DrawerOpen')}
+              title="Garage"              />
             </MapView>
           )}
 

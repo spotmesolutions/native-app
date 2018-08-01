@@ -1,8 +1,12 @@
 import React, {Component} from "react";
 import { Text, View, Image, Button } from "react-native";
 class garageHistory extends Component {
+  static navigationOptions = {
+    drawerIcon: (
+   <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_directions_3x.png")} />
+    )
+  }
   render(){
-
   return (
     <View style={styles.containerStyle}>
     <View style={styles.imageStyle}>
@@ -59,7 +63,7 @@ class garageHistory extends Component {
 
       <View style={styles.garageNameStyle}>
         <View style={styles.detailStyleLeftColumn}>
-          <Text style={styles.detailText}>SF</Text>
+          <Text style={styles.detailText}>San Francisco</Text>
         </View>
         <View style={styles.detailStyleRightColumn}>
           <Text style={styles.detailText}>220/350</Text>

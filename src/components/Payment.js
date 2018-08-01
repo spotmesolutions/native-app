@@ -2,14 +2,30 @@ import React, { Component } from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
 
 class Payment extends Component {
+      static navigationOptions = {
+      drawerIcon: (
+          <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_credit_card_3x.png")} />
+      )
+    }
   render() {
     return (
       <View style={styles.containerStyle}>
         <View style={styles.imageStyle}>
-          <Button
+        <TouchableHighlight
+            // <Image source={require("../images/menu.png")} />
+
             onPress={() => this.props.navigation.navigate("DrawerOpen")}
-            title="Back"
-          />
+            underlayColor={"white"}
+          >
+            <Image source={require("../images/menu.png")} />
+          </TouchableHighlight>
+          {/* <Button
+            onPress={() => this.props.navigation.navigate("DrawerOpen")}
+            // title="Back"
+            static navigationOptions = {
+              drawerIcon: (
+              <Image source={require("../images/menu.png")} />
+          /> */}
 
           <Text style={styles.headerText}>Santa Clara Garage </Text>
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, Dimensions } from "react-native";
 import { View, List, ListItem, Left, Body } from "native-base";
-
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 const SearchResults = ({ // component for handling list of recommendation 
