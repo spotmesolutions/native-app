@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
 
 class Payment extends Component {
+
+  static navigationOptions = {
+    drawerIcon: (
+        <Image source={require("../images/menu.png")} />
+
+    )
+  }
+  
   render() {
     return (
       <View style={styles.containerStyle}>

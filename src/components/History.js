@@ -1,6 +1,14 @@
 import React, {Component} from "react";
 import { Text, View, Image, Button } from "react-native";
 class garageHistory extends Component {
+
+  static navigationOptions = {
+    drawerIcon: (
+        <Image source={require("../images/menu.png")} />
+
+    )
+  }
+  
   render(){
 
   return (

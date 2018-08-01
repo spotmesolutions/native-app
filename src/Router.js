@@ -16,7 +16,6 @@ import {
 } from 'react-navigation';
 
 
-
 const RouterComponent = DrawerNavigator({
   Home: {
     path: '/',
@@ -45,7 +44,7 @@ const RouterComponent = DrawerNavigator({
   LogOut: {
     path: '/sent',
     screen: MenuScreen
-  },
+  }
 }, {
   initialRouteName: 'Home',
   drawerPosition: 'left',

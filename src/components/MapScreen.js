@@ -11,7 +11,6 @@ import {
 //testing
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps"; 
 
-
 import { connect } from "react-redux";
 import {
   locationChanged,
@@ -34,6 +33,13 @@ class MapScreen extends Component {
     this.props.getCurrentLocation(); //***** Bugs message: Unable to fetch location within 5.0s. 
   }
  
+  static navigationOptions = {
+    drawerIcon: (
+        <Image source={require("../images/menu.png")} />
+
+    )
+  }
+
   render() {
     return (
       <View style={styles.outerContainer}>
@@ -45,22 +51,50 @@ class MapScreen extends Component {
             <Image source={require("../images/menu.png")} />
           </TouchableHighlight>
 
-          <Text style={styles.myCustomText}>SPOT ME</Text>
+          <Text style={styles.myCustomText}>Spot Me</Text>
 
           <Image source={require("../images/icon.jpg")} />
         </View>
 
         <View style={styles.container}>
           {this.props.currentLocation.latitude && (
-            <MapView
+            <MapView style={styles.map}
               provider={PROVIDER_GOOGLE}
               style={styles.map}
-              region={this.props.currentLocation}
+              showsUserLocation
+              followsUserLocation
+              initialRegion={{
+                latitude: 37.3352,
+                longitude: -121.8811,
+                latitudeDelta: 0.02,
+                longitudeDelta: 0.02,
+              }}
+
             >
               <MapView.Marker 
-              coordinate={this.props.currentLocation}
+              coordinate={{
+                latitude: 37.336338,
+                longitude: -121.886202
+              }}
               title =  {this.props.sanjose.garageName}
               description = {this.props.sanjose.garageAvailable}
+              pinColor = "blue"
+              />
+              <MapView.Marker 
+              coordinate={{
+                latitude: 37.336834,
+                longitude: -121.888237
+              }}
+              title =  {this.props.sanjose.garageName}
+              description = {this.props.sanjose.garageAvailable}
+              pinColor = "green"
+              />
+              <MapView.Marker 
+              onPress={() => this.props.navigation.navigate('DrawerOpen')}
+              coordinate={{
+                latitude: 37.333123,
+                longitude: -121.885789
+              }}
               />
             </MapView>
           )}
@@ -84,6 +118,7 @@ class MapScreen extends Component {
 }
 
 const styles = {
+
   container: {
     flex: 1,
     justifyContent: "center",
