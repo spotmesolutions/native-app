@@ -72,33 +72,40 @@ class MapScreen extends Component {
 
             >
               <MapView.Marker 
+              onCalloutPress={() => alert('Clicked')}
               coordinate={{
                 latitude: 37.336338,
                 longitude: -121.886202
               }}
-              title =  {this.props.sanjose.garageName}
-              description = {this.props.sanjose.garageAvailable}
+              title =  "Garage3"
+              description = "available"
               pinColor = "blue"
+              onCalloutPress={() => alert('clicked')}
               />
               <MapView.Marker 
+              onCalloutPress={() => alert('Clicked')}
               coordinate={{
                 latitude: 37.336834,
                 longitude: -121.888237
               }}
-              title =  {this.props.sanjose.garageName}
-              description = {this.props.sanjose.garageAvailable}
+              title =  "Garage1"
+              description = "available"
               pinColor = "green"
               />
               <MapView.Marker 
-              onPress={() => this.props.navigation.navigate('DrawerOpen')}
+              onCalloutPress={() => alert('Clicked')}
+              onPress={() => this.props.navigation.navigate('Favorite')}
               coordinate={{
                 latitude: 37.333123,
                 longitude: -121.885789
               }}
+              title =  "Garage"
+              description = "available"
               />
+              
             </MapView>
           )}
-
+          
           <SearchBox
             getInputData={this.props.getInputData}
             getAddressPredictions={this.props.getAddressPredictions}
