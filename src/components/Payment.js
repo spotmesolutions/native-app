@@ -2,30 +2,20 @@ import React, { Component } from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
 
 class Payment extends Component {
-      static navigationOptions = {
-      drawerIcon: (
-          <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_credit_card_3x.png")} />
-      )
-    }
+
+  static navigationOptions = {
+    drawerIcon: (
+        <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_credit_card_3x.png")} />
+    )
+  }
   render() {
     return (
       <View style={styles.containerStyle}>
         <View style={styles.imageStyle}>
-        <TouchableHighlight
-            // <Image source={require("../images/menu.png")} />
-
+          <Button
             onPress={() => this.props.navigation.navigate("DrawerOpen")}
-            underlayColor={"white"}
-          >
-            <Image source={require("../images/menu.png")} />
-          </TouchableHighlight>
-          {/* <Button
-            onPress={() => this.props.navigation.navigate("DrawerOpen")}
-            // title="Back"
-            static navigationOptions = {
-              drawerIcon: (
-              <Image source={require("../images/menu.png")} />
-          /> */}
+            title="Back"
+          />
 
           <Text style={styles.headerText}>Santa Clara Garage </Text>
 
@@ -79,7 +69,7 @@ class Payment extends Component {
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#42b8ba",
     flexDirection: "column",
     justifyContent: "flex-start",
     marginTop: 15,
@@ -104,11 +94,11 @@ const styles = {
   headerText: {
     fontFamily: 'Avenir Next Condensed',
     fontSize: 30,
-      color: "#379b8c",
+      color: "black",
       fontWeight: "900"
   },
   detailText: {
-    fontFamily: 'Avenir Next Condensed',
+    // fontFamily: 'Avenir Next Condensed',
     fontSize: 20
   },
   detailTextTitle: {

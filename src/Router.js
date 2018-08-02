@@ -10,31 +10,32 @@ import History from './components/History';
 import MapScreen from './components/MapScreen';
 import MenuScreen from './components/MenuScreen';
 import { DrawerNavigator } from 'react-navigation';
+import SearchBox from "./components/SearchBox";
 
 const RouterComponent = DrawerNavigator({
-  Home: {
+  "Home": {
     path: '/',
     screen: MapScreen
   },
-  Favorite: {
+  "Favorites": {
     path: '/sent',
     screen: Favorite
   },
-  Recent: {
+  "Recent": {
     path: '/sent',
     screen: History
   },
-  Payment: {
+  "Payment": {
     path: '/sent',
     screen: Payment
   },
- Account: {
+ "Account": {
     path: '/sent',
     screen: MenuScreen
   },
-  LogOut: {
+  "Log Out": {
     path: '/sent',
-    screen: MenuScreen
+    screen: SearchBox
   },
   // GarageInfo: {
   //   path: '/sent',

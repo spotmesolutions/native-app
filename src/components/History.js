@@ -81,7 +81,7 @@ class garageHistory extends Component {
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: '#fff',    
+    backgroundColor: "#42b8ba",    
     flexDirection: "column",
     justifyContent: "flex-start",
   },
@@ -112,11 +112,11 @@ const styles = {
   headerText: {
     fontFamily: 'Avenir Next Condensed',
     fontSize: 30,
-    color: "#379b8c",
+    color: "black",
     fontWeight: "900"
   },
   detailText: {
-    fontFamily: 'Avenir Next Condensed',
+    // fontFamily: 'Avenir Next Condensed',
     fontSize: 20
 
   },

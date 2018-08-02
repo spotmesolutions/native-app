@@ -11,7 +11,6 @@ import {
 //testing
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps"; 
 
-
 import { connect } from "react-redux";
 import {
   locationChanged,
@@ -29,56 +28,84 @@ import { View } from "native-base";
 import { StyleSheet } from "react-native";
 
 class MapScreen extends Component {
-  static navigationOptions = {
-    drawerIcon: (
-   <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_home_3x.png")} />
-    )
-  }
+  
   componentWillMount() {
     this.props.getCurrentLocation(); //***** Bugs message: Unable to fetch location within 5.0s. 
+  }
+ 
+  static navigationOptions = {
+    drawerIcon: (
+        <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_home_3x.png")} />
 
+    )
   }
 
- 
   render() {
     return (
-      //Header of Navigation Bar
       <View style={styles.outerContainer}>
         <View style={styles.navigationBar}>
           <TouchableHighlight
-            // <Image source={require("../images/menu.png")} />
-
             onPress={() => this.props.navigation.navigate("DrawerOpen")}
             underlayColor={"white"}
           >
+{/* Top Left: Navigator Hamburger Button */}
             <Image source={require("../images/menu.png")} />
           </TouchableHighlight>
 
+{/* Main Header of App */}
           <Text style={styles.myCustomText}>Spot Me</Text>
 
+ {/* Top Right: Corner of App */}
           <Image source={require("../images/fbIcon.jpg")} />
         </View>
 
         <View style={styles.container}>
           {this.props.currentLocation.latitude && (
-            <MapView
-            showsUserLocation
+            <MapView style={styles.map}
               provider={PROVIDER_GOOGLE}
               style={styles.map}
-              region={this.props.currentLocation}
+              showsUserLocation
+              followsUserLocation
+              initialRegion={{
+                latitude: 37.3352,
+                longitude: -121.8811,
+                latitudeDelta: 0.02,
+                longitudeDelta: 0.02,
+              }}
+
             >
               <MapView.Marker 
-            onPress={() => this.props.navigation.navigate("DrawerOpen")}
-              title = "Garage"
-              coordinate={this.props.currentLocation}
-              title =  {this.props.sanjose.garageName}
-              description = {this.props.sanjose.garageAvailable}
+              onCalloutPress={() => alert('Clicked')}
+              coordinate={{
+                latitude: 37.336338,
+                longitude: -121.886202
+              }}
+              title =  "2nd Street Garage"
               pinColor = "blue"
-              onPress={() => this.props.navigation.navigate('DrawerOpen')}
-              title="Garage"              />
+              onCalloutPress={() => alert('clicked')}
+              />
+              <MapView.Marker 
+              onCalloutPress={() => alert('Clicked')}
+              coordinate={{
+                latitude: 37.336834,
+                longitude: -121.888237
+              }}
+              title =  "3rd Street Garage"
+              pinColor = "green"
+              />
+              <MapView.Marker 
+              onCalloutPress={() => alert('Clicked')}
+              onPress={() => this.props.navigation.navigate('Favorite')}
+              coordinate={{
+                latitude: 37.333123,
+                longitude: -121.885789
+              }}
+              title =  "4th Street Garage"
+              />
+              
             </MapView>
           )}
-
+          
           <SearchBox
             getInputData={this.props.getInputData}
             getAddressPredictions={this.props.getAddressPredictions}
@@ -98,6 +125,7 @@ class MapScreen extends Component {
 }
 
 const styles = {
+
   container: {
     flex: 1,
     justifyContent: "center",
@@ -106,11 +134,12 @@ const styles = {
   map: {
     ...StyleSheet.absoluteFillObject
   },
+  // SPOT ME
   outerContainer: {
     backgroundColor: "#42b8ba",
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "space-between",
   },
   myCustomText: {
     fontFamily: 'Avenir Next Condensed',
