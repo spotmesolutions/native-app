@@ -17,7 +17,7 @@ const RouterComponent = DrawerNavigator({
     path: '/',
     screen: MapScreen
   },
-  "Favorites": {
+  Favorites: {
     path: '/sent',
     screen: Favorite
   },

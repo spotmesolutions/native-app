@@ -95,7 +95,7 @@ class MapScreen extends Component {
               />
               <MapView.Marker 
               onCalloutPress={() => alert('Clicked')}
-              onPress={() => this.props.navigation.navigate('Favorite')}
+              onPress={() => this.props.navigation.navigate("Favorites")}
               coordinate={{
                 latitude: 37.333123,
                 longitude: -121.885789
