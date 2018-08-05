@@ -44,7 +44,7 @@ class MapScreen extends Component {
             <Image source={require('../images/menu.png')} />
           </TouchableHighlight>
 
-          <Text style={styles.companyText}>SPOT ME</Text>
+          <Text style={styles.companyText}>Spot Me</Text>
 
           <Image source={require("../images/icon.jpg")} />
         </View>
