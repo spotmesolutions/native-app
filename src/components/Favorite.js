@@ -1,5 +1,6 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
+//Cindy was here
 
 //Mark was here
 //renamed files
