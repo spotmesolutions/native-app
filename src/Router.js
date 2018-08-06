@@ -11,6 +11,7 @@ import Favorite from './components/Favorite';
 import History from './components/History';
 import MapScreen from './components/MapScreen';
 import MenuScreen from './components/MenuScreen';
+import SearchBox from "./components/SearchBox";
 import LoginForm from './components/LoginForm';
 import {
   DrawerNavigator
@@ -51,6 +52,10 @@ const RouterComponent = DrawerNavigator({
     path: '/sent',
     screen: MenuScreen
   },
+  // GarageInfo: {
+   //   path: '/sent',
+   //   screen: MenuScreen
+   // },
 }, {
   initialRouteName: 'Home',
   drawerPosition: 'left',

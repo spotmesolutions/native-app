@@ -1,6 +1,11 @@
 import React, {Component} from "react";
 import { Text, View, Image, Button } from "react-native";
 class garageHistory extends Component {
+  static navigationOptions = {
+    drawerIcon: (
+   <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_directions_3x.png")} />
+    )
+  }
   render(){
 
   return (
@@ -59,7 +64,7 @@ class garageHistory extends Component {
 
       <View style={styles.garageNameStyle}>
         <View style={styles.detailStyleLeftColumn}>
-          <Text style={styles.detailText}>SF</Text>
+          <Text style={styles.detailText}>San Francisco</Text>
         </View>
         <View style={styles.detailStyleRightColumn}>
           <Text style={styles.detailText}>220/350</Text>
@@ -77,7 +82,7 @@ class garageHistory extends Component {
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: '#fff',    
+    backgroundColor: '#42b8ba',    
     flexDirection: "column",
     justifyContent: "flex-start",
   },
@@ -108,11 +113,11 @@ const styles = {
   headerText: {
     fontFamily: 'Avenir Next Condensed',
     fontSize: 30,
-    color: "#379b8c",
+    color: "black",
     fontWeight: "900"
   },
   detailText: {
-    fontFamily: 'Avenir Next Condensed',
+    //fontFamily: 'Avenir Next Condensed',
     fontSize: 20
 
   },
