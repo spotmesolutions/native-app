@@ -11,6 +11,7 @@ import Favorite from './components/Favorite';
 import History from './components/History';
 import MapScreen from './components/MapScreen';
 import MenuScreen from './components/MenuScreen';
+import LoginForm from './components/LoginForm';
 import {
   DrawerNavigator
 } from 'react-navigation';
@@ -19,6 +20,10 @@ import {
 
 const RouterComponent = DrawerNavigator({
   Home: {
+    path: '/',
+    screen: LoginForm
+  },
+  MapScreen: {
     path: '/',
     screen: MapScreen
   },

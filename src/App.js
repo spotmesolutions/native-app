@@ -25,12 +25,12 @@ class App extends Component {
   //connect to firebase when app first started
   componentWillMount() {
     const config = {
-      apiKey: "AIzaSyCA8Ywe9YFjWHSKuhB3NdNzgjtL1oICCOU",
-      authDomain: "spotme-5eeda.firebaseapp.com",
-      databaseURL: "https://spotme-5eeda.firebaseio.com",
-      projectId: "spotme-5eeda",
-      storageBucket: "spotme-5eeda.appspot.com",
-      messagingSenderId: "457180824943"
+      apiKey: 'AIzaSyB01aoHYr0DStrYr7Me7fEpWgWZ5iGJYZQ',
+      authDomain: 'native-app-21e6b.firebaseapp.com',
+      databaseURL: 'https://native-app-21e6b.firebaseio.com',
+      projectId: 'native-app-21e6b',
+      storageBucket: 'native-app-21e6b.appspot.com',
+      messagingSenderId: '278704427993'
     };
     firebase.initializeApp(config);
   }
