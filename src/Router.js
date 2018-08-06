@@ -9,11 +9,24 @@ import Favorite from './components/Favorite';
 import History from './components/History';
 import MapScreen from './components/MapScreen';
 import MenuScreen from './components/MenuScreen';
+<<<<<<< HEAD
 import { DrawerNavigator } from 'react-navigation';
 import SearchBox from "./components/SearchBox";
+=======
+import LoginForm from './components/LoginForm';
+import {
+  DrawerNavigator
+} from 'react-navigation';
+
+
+>>>>>>> f9220a16a4a41961e6d9feb3a4dc8e7628b2176e
 
 const RouterComponent = DrawerNavigator({
   "Home": {
+    path: '/',
+    screen: LoginForm
+  },
+  MapScreen: {
     path: '/',
     screen: MapScreen
   },
