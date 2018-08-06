@@ -4,7 +4,7 @@ import { Text, View, Image, Button, Dimensions } from "react-native";
 class Payment extends Component {
   static navigationOptions = {
     drawerIcon: (
-        <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_credit_card_3x.png")} />
+        <Image source={require("../images/ICONS/ic_credit_card_3x.png")} />
     )
   }
   render() {

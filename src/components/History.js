@@ -3,7 +3,7 @@ import { Text, View, Image, Button } from "react-native";
 class garageHistory extends Component {
   static navigationOptions = {
     drawerIcon: (
-   <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_directions_3x.png")} />
+   <Image source={require("../images/ICONS/ic_directions_3x.png")} />
     )
   }
   render(){

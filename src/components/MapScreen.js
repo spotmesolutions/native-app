@@ -36,7 +36,7 @@ class MapScreen extends Component {
  
   static navigationOptions = {
     drawerIcon: (
-        <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_home_3x.png")} />
+        <Image source={require("../images/ICONS/ic_home_3x.png")} />
 
     )
   }

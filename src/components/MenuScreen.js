@@ -4,7 +4,7 @@ import {Text, View, Image, Button } from 'react-native';
 export default class MenuScreen extends Component{
     static navigationOptions = {
         drawerIcon: (
-       <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_person_outline_3x.png")} />
+       <Image source={require("../images/ICONS/ic_person_outline_3x.png")} />
         )
       }
 
