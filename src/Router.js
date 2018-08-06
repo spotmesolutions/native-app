@@ -11,9 +11,14 @@ import MapScreen from './components/MapScreen';
 import MenuScreen from './components/MenuScreen';
 import { DrawerNavigator } from 'react-navigation';
 import SearchBox from "./components/SearchBox";
+import LoginForm from './components/LoginForm';
 
 const RouterComponent = DrawerNavigator({
   "Home": {
+    path: '/',
+    screen: LoginForm
+  },
+  MapScreen: {
     path: '/',
     screen: MapScreen
   },

@@ -6,6 +6,7 @@ class garageHistory extends Component {
    <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_directions_3x.png")} />
     )
   }
+  
   render(){
   return (
     <View style={styles.containerStyle}>
@@ -15,7 +16,6 @@ class garageHistory extends Component {
     title='back'
     />
     <Text style={styles.headerText}>Recently Searched </Text>
-
       <Image
         source={require("../images/icon.jpg")}
       />

@@ -9,7 +9,7 @@ import {
 } from "react-native";
 // NOTE: need to be enabled in google api for map
 //testing
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps"; 
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 import { connect } from "react-redux";
 import {
@@ -28,11 +28,11 @@ import { View } from "native-base";
 import { StyleSheet } from "react-native";
 
 class MapScreen extends Component {
-  
+
   componentWillMount() {
-    this.props.getCurrentLocation(); //***** Bugs message: Unable to fetch location within 5.0s. 
+    this.props.getCurrentLocation(); //***** Bugs message: Unable to fetch location within 5.0s.
   }
- 
+
   static navigationOptions = {
     drawerIcon: (
         <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_home_3x.png")} />
@@ -92,6 +92,10 @@ class MapScreen extends Component {
               }}
               title =  "3rd Street Garage"
               pinColor = "green"
+              <MapView.Marker
+              coordinate={this.props.currentLocation}
+              title =  {this.props.sanjose.garageName}
+              description = {this.props.sanjose.garageAvailable}
               />
               <MapView.Marker 
               onCalloutPress={() => alert('Clicked')}
