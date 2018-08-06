@@ -13,29 +13,24 @@ import {
   ButtonSection,
   LogoImageSection
 } from './common';
-
-class LoginForm extends Component {
-
-  onEmailChange(text) {
+ class LoginForm extends Component {
+   onEmailChange(text) {
     this.props.emailChanged(text);
   }
-
-  onPasswordChange(text) {
+   onPasswordChange(text) {
     this.props.passwordChanged(text);
   }
-
-  onButtonPress() {
+   onButtonPress() {
     const { email, password } = this.props;
-
-    this.props.loginUser({ email, password });
+     this.props.loginUser({ email, password });
   }
-
-  onLoginFail() {
+   onLoginFail() {
     this.setState({
       error: 'Authentication Failed.',
       loading: false
     });
   }
+<<<<<<< HEAD
 
   renderButton() {
     if (this.props.loading) {
@@ -47,12 +42,26 @@ class LoginForm extends Component {
 
     return (
      <Button onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+=======
+   renderButton() {
+    if (this.props.loading) {
+      return <Spinner size="large" />;
+    }
+     //()=>this.props.navigation.navigate('DrawerOpen')
+    //this.onButtonPress.bind(this)
+     return (
+     <Button onPress={() => this.props.navigation.navigate('MapScreen')}>
+>>>>>>> master
       Log in
       </Button>
     );
   }
+<<<<<<< HEAD
 
   renderError() {
+=======
+   renderError() {
+>>>>>>> master
     if (this.props.error) {
       return (
         <View style={{ backgroundColor: 'white' }}>
@@ -63,6 +72,7 @@ class LoginForm extends Component {
       );
     }
   }
+<<<<<<< HEAD
 
   render() {
     return (
@@ -73,6 +83,14 @@ class LoginForm extends Component {
       <Header />
 
       <CardSection>
+=======
+   render() {
+    return (
+      <Card>
+       <LogoImageSection />
+       <Header />
+       <CardSection>
+>>>>>>> master
       <Input
       label="Email"
       placeholder="e-mail"
@@ -80,8 +98,12 @@ class LoginForm extends Component {
       value={this.props.email}
       />
       </CardSection>
+<<<<<<< HEAD
 
       <CardSection>
+=======
+       <CardSection>
+>>>>>>> master
       <Input
       secureTextEntry
       label="Password"
@@ -90,24 +112,34 @@ class LoginForm extends Component {
       value={this.props.password}
       />
       </CardSection>
+<<<<<<< HEAD
 
       {this.renderError()}
 
       <ButtonSection>
+=======
+       {this.renderError()}
+       <ButtonSection>
+>>>>>>> master
       {this.renderButton()}
       </ButtonSection>
       </Card>
     );
   }
 }
+<<<<<<< HEAD
 
 const styles = {
+=======
+ const styles = {
+>>>>>>> master
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
   }
 };
+<<<<<<< HEAD
 
 const mapStateToProps = ({ auth }) => {
   const { email, password, error, loading } = auth;
@@ -118,3 +150,12 @@ const mapStateToProps = ({ auth }) => {
 export default connect(mapStateToProps, {
   emailChanged, passwordChanged, loginUser
 })(LoginForm);
+=======
+ const mapStateToProps = ({ auth }) => {
+  const { email, password, error, loading } = auth;
+   return { email, password, error, loading };
+};
+ export default connect(mapStateToProps, {
+  emailChanged, passwordChanged, loginUser
+})(LoginForm);
+>>>>>>> master

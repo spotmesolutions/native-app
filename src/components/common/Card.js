@@ -1,15 +1,23 @@
 import React from 'react';
 import { View } from 'react-native';
+<<<<<<< HEAD
 
 const Card = (props) => {
+=======
+ const Card = (props) => {
+>>>>>>> master
   return (
     <View style={styles.containerStyle}>
       {props.children}
     </View>
   );
 };
+<<<<<<< HEAD
 
 const styles = {
+=======
+ const styles = {
+>>>>>>> master
   containerStyle: {
     //borderWidth: 1,
     //borderRadius: 2,
@@ -35,5 +43,9 @@ const styles = {
     alignItems: 'center',
   }
 };
+<<<<<<< HEAD
 
 export { Card };
+=======
+ export { Card };
+>>>>>>> master

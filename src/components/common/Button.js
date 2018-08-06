@@ -1,10 +1,16 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
+<<<<<<< HEAD
 
 const Button = ({ onPress, children }) => {
   const { buttonStyle, textStyle } = styles;
 
   return (
+=======
+ const Button = ({ onPress, children }) => {
+  const { buttonStyle, textStyle } = styles;
+   return (
+>>>>>>> master
     <TouchableOpacity onPress={onPress} style={buttonStyle}>
       <Text style={textStyle}>
         {children}
@@ -12,8 +18,12 @@ const Button = ({ onPress, children }) => {
     </TouchableOpacity>
   );
 };
+<<<<<<< HEAD
 
 const styles = {
+=======
+ const styles = {
+>>>>>>> master
   buttonStyle: {
     borderBottomWidth: 3,
     //padding: 5,
@@ -42,5 +52,9 @@ const styles = {
     //paddingBottom: 10
   }
 };
+<<<<<<< HEAD
 
 export { Button };
+=======
+ export { Button };
+>>>>>>> master

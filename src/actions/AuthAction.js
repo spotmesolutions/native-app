@@ -9,26 +9,22 @@ import {
  } from './types';
  import { MapScreen } from '../components/MapScreen';
  // npm install --save redux-thunk
-
-export const emailChanged = (text) => {
+ export const emailChanged = (text) => {
   return {
     type: EMAIL_CHANGED,
     payload: text
   };
 };
-
-export const passwordChanged = (text) => {
+ export const passwordChanged = (text) => {
   return {
     type: PASSWORD_CHANGED,
     payload: text
   };
 };
-
-export const loginUser = ({ email, password }) => {
+ export const loginUser = ({ email, password }) => {
   return (dispatch) => {
   dispatch({ type: LOGIN_USER });
-
-  firebase.auth().signInWithEmailAndPassword(email, password)
+   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => loginUserSuccess(dispatch, user))
     .catch(() => {
       firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -37,12 +33,10 @@ export const loginUser = ({ email, password }) => {
     });
   };
 };
-
-const loginUserFail = (dispatch) => {
+ const loginUserFail = (dispatch) => {
   dispatch({ type: LOGIN_USER_FAIL });
 };
-
-const loginUserSuccess = (dispatch, user) => {
+ const loginUserSuccess = (dispatch, user) => {
   dispatch({
     type: LOGIN_USER_SUCCESS,
     payload: user

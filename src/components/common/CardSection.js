@@ -1,15 +1,23 @@
 import React from 'react';
 import { View } from 'react-native';
+<<<<<<< HEAD
 
 const CardSection = (props) => {
+=======
+ const CardSection = (props) => {
+>>>>>>> master
   return (
       <View style={styles.containerStyle}>
         {props.children}
       </View>
   );
 };
+<<<<<<< HEAD
 
 const styles = {
+=======
+ const styles = {
+>>>>>>> master
   containerStyle: {
     borderBottomWidth: 3,
     padding: 5,
@@ -30,5 +38,9 @@ const styles = {
     marginTop: 20,
   }
 };
+<<<<<<< HEAD
 
 export { CardSection };
+=======
+ export { CardSection };
+>>>>>>> master
