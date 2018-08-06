@@ -2,6 +2,11 @@ import React,{Component} from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
 //Lukes was here
 class Favorite extends Component{
+  static navigationOptions = {
+    drawerIcon: (
+   <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_favorite_3x.png")} />
+    )
+  }
 render(){
   return (
     <View style={styles.containerStyle}>
@@ -68,7 +73,7 @@ render(){
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#42b8ba",
     flexDirection: "column",
     justifyContent: "flex-start",
     width:Dimensions.get('window').width,
@@ -103,12 +108,12 @@ const styles = {
   headerText: {
     fontFamily: 'Avenir Next Condensed',
       fontSize: 30,
-      color: "#379b8c",
+      color: "black",
       fontWeight: "900"
   
   },
   detailText: {
-    fontFamily: 'Avenir Next Condensed',
+    //fontFamily: 'Avenir Next Condensed',
     fontSize: 20
   },
   subHeaderText: {
