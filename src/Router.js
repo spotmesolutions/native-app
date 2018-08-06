@@ -17,7 +17,7 @@ const RouterComponent = DrawerNavigator({
     path: '/',
     screen: MapScreen
   },
-  Favorites: {
+  "Favorites": {
     path: '/sent',
     screen: Favorite
   },
@@ -35,7 +35,7 @@ const RouterComponent = DrawerNavigator({
   },
   "Log Out": {
     path: '/sent',
-    screen: SearchBox
+    screen: MenuScreen
   },
   // GarageInfo: {
   //   path: '/sent',
