@@ -1,13 +1,23 @@
 import React from 'react';
 import { View } from 'react-native';
+<<<<<<< HEAD
+
+const ButtonSection = (props) => {
+=======
  const ButtonSection = (props) => {
+>>>>>>> master
   return (
       <View style={styles.containerStyle}>
         {props.children}
       </View>
   );
 };
+<<<<<<< HEAD
+
+const styles = {
+=======
  const styles = {
+>>>>>>> master
   containerStyle: {
     borderBottomWidth: 3,
     padding: 5,
@@ -29,4 +39,9 @@ import { View } from 'react-native';
     //justifyContent: 'flex-start',
   }
 };
+<<<<<<< HEAD
+
+export { ButtonSection };
+=======
  export { ButtonSection };
+>>>>>>> master

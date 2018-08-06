@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, Dimensions } from "react-native";
 import { View, List, ListItem, Left, Body } from "native-base";
-
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 const SearchResults = ({ // component for handling list of recommendation 
@@ -46,16 +45,16 @@ const styles = {
     position: "absolute",
     width: "90%",
     height: 100,
-    backgroundColor: "#fff",
+    backgroundColor: "#110302",
     opacity: 0.9
   },
   primaryText: {
     fontWeight: "bold",
-    color: "#373737"
+    color: "#ffffff"
   },
   secondaryText: {
     fontStyle: "italic",
-    color: "#7D7D7D"
+    color: "#ffffff"
   },
   leftContainer: {
     flexWrap: "wrap",

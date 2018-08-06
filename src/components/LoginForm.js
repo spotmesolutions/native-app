@@ -30,6 +30,19 @@ import {
       loading: false
     });
   }
+<<<<<<< HEAD
+
+  renderButton() {
+    if (this.props.loading) {
+      return <Spinner size="large" />;
+    }
+
+    //()=>this.props.navigation.navigate('DrawerOpen')
+    //this.onButtonPress.bind(this)
+
+    return (
+     <Button onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+=======
    renderButton() {
     if (this.props.loading) {
       return <Spinner size="large" />;
@@ -38,11 +51,17 @@ import {
     //this.onButtonPress.bind(this)
      return (
      <Button onPress={() => this.props.navigation.navigate('MapScreen')}>
+>>>>>>> master
       Log in
       </Button>
     );
   }
+<<<<<<< HEAD
+
+  renderError() {
+=======
    renderError() {
+>>>>>>> master
     if (this.props.error) {
       return (
         <View style={{ backgroundColor: 'white' }}>
@@ -53,12 +72,25 @@ import {
       );
     }
   }
+<<<<<<< HEAD
+
+  render() {
+    return (
+      <Card>
+
+      <LogoImageSection />
+
+      <Header />
+
+      <CardSection>
+=======
    render() {
     return (
       <Card>
        <LogoImageSection />
        <Header />
        <CardSection>
+>>>>>>> master
       <Input
       label="Email"
       placeholder="e-mail"
@@ -66,7 +98,12 @@ import {
       value={this.props.email}
       />
       </CardSection>
+<<<<<<< HEAD
+
+      <CardSection>
+=======
        <CardSection>
+>>>>>>> master
       <Input
       secureTextEntry
       label="Password"
@@ -75,21 +112,45 @@ import {
       value={this.props.password}
       />
       </CardSection>
+<<<<<<< HEAD
+
+      {this.renderError()}
+
+      <ButtonSection>
+=======
        {this.renderError()}
        <ButtonSection>
+>>>>>>> master
       {this.renderButton()}
       </ButtonSection>
       </Card>
     );
   }
 }
+<<<<<<< HEAD
+
+const styles = {
+=======
  const styles = {
+>>>>>>> master
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
   }
 };
+<<<<<<< HEAD
+
+const mapStateToProps = ({ auth }) => {
+  const { email, password, error, loading } = auth;
+
+  return { email, password, error, loading };
+};
+
+export default connect(mapStateToProps, {
+  emailChanged, passwordChanged, loginUser
+})(LoginForm);
+=======
  const mapStateToProps = ({ auth }) => {
   const { email, password, error, loading } = auth;
    return { email, password, error, loading };
@@ -97,3 +158,4 @@ import {
  export default connect(mapStateToProps, {
   emailChanged, passwordChanged, loginUser
 })(LoginForm);
+>>>>>>> master

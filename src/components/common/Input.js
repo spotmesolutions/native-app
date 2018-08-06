@@ -1,6 +1,11 @@
 import React from 'react';
 import { Text, View, TextInput } from 'react-native';
+<<<<<<< HEAD
+
+const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+=======
  const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+>>>>>>> master
   const { inputStyle, labelStyle, containerStyle } = styles;
   return (
     <View style={containerStyle}>
@@ -16,7 +21,12 @@ import { Text, View, TextInput } from 'react-native';
     </View>
   );
 };
+<<<<<<< HEAD
+
+const styles = {
+=======
  const styles = {
+>>>>>>> master
   inputStyle: {
     color: '#000',
     paddingRight: 5,
@@ -37,4 +47,9 @@ import { Text, View, TextInput } from 'react-native';
     alignItems: 'center'
   }
 };
+<<<<<<< HEAD
+
+export { Input };
+=======
  export { Input };
+>>>>>>> master

@@ -1,7 +1,13 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
 import { Text, View, Image, Button, Dimensions } from "react-native";
-//Lukes was here
+//Cindy was here
+
 class Favorite extends Component{
+  static navigationOptions = {
+    drawerIcon: (
+   <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_favorite_3x.png")} />
+    )
+  }
 render(){
   return (
     <View style={styles.containerStyle}>
@@ -11,10 +17,10 @@ render(){
     onPress={() => this.props.navigation.navigate('DrawerOpen')}
     title="Back"
     />
-    <Text 
+    <Text
     style={styles.headerText}
     >
-    Favorite </Text>
+    Favorites </Text>
 
       <Image
         source={require("../images/icon.jpg")}
@@ -34,7 +40,7 @@ render(){
 
       <View style={styles.garageNameStyle}>
         <View style={styles.detailStyleLeftColumn}>
-          <Text style={styles.detailText}>SanFrancisco </Text>
+          <Text style={styles.detailText}>San Francisco </Text>
         </View>
         <View style={styles.detailStyleRightColumn}>
           <Text style={styles.detailText}>L1 80/100</Text>
@@ -46,7 +52,7 @@ render(){
 
       <View style={styles.garageNameStyle}>
         <View style={styles.detailStyleLeftColumn}>
-          <Text style={styles.detailText}>San Jose state</Text>
+          <Text style={styles.detailText}>San Jose State</Text>
         </View>
         <View style={styles.detailStyleRightColumn}>
           <Text style={styles.detailText}>50/200</Text>
@@ -68,7 +74,7 @@ render(){
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#42b8ba",
     flexDirection: "column",
     justifyContent: "flex-start",
     width:Dimensions.get('window').width,
@@ -101,20 +107,21 @@ const styles = {
     margin: 10
   },
   headerText: {
-    fontFamily: 'Avenir Next Condensed',
+      fontFamily: 'Avenir Next Condensed',
       fontSize: 30,
-      color: "#379b8c",
+      color: "black",
       fontWeight: "900"
-  
+
   },
   detailText: {
-    fontFamily: 'Avenir Next Condensed',
+    // fontFamily: 'Avenir Next Condensed',
     fontSize: 20
   },
   subHeaderText: {
     fontFamily: 'Avenir Next Condensed',
     fontSize: 25,
     textDecorationLine: "underline"
+
   }
 };
 export default Favorite;

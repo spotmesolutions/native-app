@@ -14,11 +14,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 			<View style={styles.searchBox}>
 				<View style={styles.inputWrapper}>
 					<InputGroup>
-						<Icon name="search" size={15} color="#FF5E3A"/>
+						<Icon name="search" size={15} color="#42b8ba"/>
                         <Input
                             
 							style={styles.inputSearch}
-							placeholder="search garage"
+							placeholder="Search Garage"
 							onChangeText={handleInput.bind(this)}
 							value={inputData}
 						/>

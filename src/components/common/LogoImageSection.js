@@ -1,8 +1,16 @@
 import React from 'react';
 import { View, Image } from 'react-native';
+<<<<<<< HEAD
+
+const LogoImageSection = (props) => {
+  const { ImageStyle, viewStyle } = styles;
+
+  return (
+=======
  const LogoImageSection = (props) => {
   const { ImageStyle, viewStyle } = styles;
    return (
+>>>>>>> master
     <View style={viewStyle}>
       <Image
         style={ImageStyle}
@@ -11,7 +19,12 @@ import { View, Image } from 'react-native';
     </View>
   );
 };
+<<<<<<< HEAD
+
+const styles = {
+=======
  const styles = {
+>>>>>>> master
   viewStyle: {
     backgroundColor: '#1DE0AB',
     justifyContent: 'center',
@@ -29,4 +42,9 @@ import { View, Image } from 'react-native';
     height: 70
   },
 };
+<<<<<<< HEAD
+
+export { LogoImageSection };
+=======
  export { LogoImageSection };
+>>>>>>> master

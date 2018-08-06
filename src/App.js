@@ -21,7 +21,7 @@ import firebase from "firebase";
 const store = createStore(reducers,{}, applyMiddleware(thunk));
 
 class App extends Component {
-  
+
   //connect to firebase when app first started
   componentWillMount() {
     const config = {
