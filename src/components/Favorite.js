@@ -4,7 +4,7 @@ import { Text, View, Image, Button, Dimensions } from "react-native";
 class Favorite extends Component{
   static navigationOptions = {
     drawerIcon: (
-   <Image source={require("/Users/MarkM/Desktop/native-app-copy/src/images/ICONS/ic_favorite_3x.png")} />
+   <Image source={require("../images/ICONS/ic_favorite_3x.png")} />
     )
   }
 render(){
